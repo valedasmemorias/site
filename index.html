@@ -749,26 +749,60 @@
     reveals.forEach(el => io.observe(el));
 
     // ── Form submit handler ───────────────────────────────────────────────
-    function handleSubmit(event, formId) {
+    async function handleSubmit(event, formId) {
       event.preventDefault();
       const form = document.getElementById(formId);
       const input = form.querySelector('input[type="email"]');
-      const email = input.value;
+      const button = form.querySelector('button[type="submit"]');
+      const email = input.value.trim();
 
-      // Replace form with success message
-      form.innerHTML = `
-        <div class="flex flex-col items-center gap-3 py-4 animate-fade-in">
-          <div class="w-12 h-12 bg-sage-100 rounded-full flex items-center justify-center">
-            <svg class="w-6 h-6 text-sage-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
-            </svg>
+      const originalButtonText = button.innerHTML;
+      input.disabled = true;
+      button.disabled = true;
+      button.innerHTML = 'Enviando...';
+      button.classList.add('opacity-70', 'cursor-not-allowed');
+
+      try {
+        const response = await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, source: formId }),
+        });
+
+        if (!response.ok) {
+          const data = await response.json().catch(() => ({}));
+          throw new Error(data.error || 'Não foi possível enviar agora. Tente novamente.');
+        }
+
+        // Replace form with success message
+        form.innerHTML = `
+          <div class="flex flex-col items-center gap-3 py-4 animate-fade-in">
+            <div class="w-12 h-12 bg-sage-100 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6 text-sage-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <div>
+              <p class="font-semibold text-slate-800 mb-1">Você está na lista! 🎉</p>
+              <p class="text-sm text-slate-500">Entraremos em contato em breve no e-mail <strong>${email}</strong>.</p>
+            </div>
           </div>
-          <div>
-            <p class="font-semibold text-slate-800 mb-1">Você está na lista! 🎉</p>
-            <p class="text-sm text-slate-500">Entraremos em contato em breve no e-mail <strong>${email}</strong>.</p>
-          </div>
-        </div>
-      `;
+        `;
+      } catch (err) {
+        let errorEl = form.querySelector('[data-error]');
+        if (!errorEl) {
+          errorEl = document.createElement('p');
+          errorEl.setAttribute('data-error', '');
+          errorEl.className = 'text-xs text-red-500 mt-3';
+          form.appendChild(errorEl);
+        }
+        errorEl.textContent = err.message || 'Não foi possível enviar agora. Tente novamente.';
+
+        input.disabled = false;
+        button.disabled = false;
+        button.innerHTML = originalButtonText;
+        button.classList.remove('opacity-70', 'cursor-not-allowed');
+      }
     }
   </script>
 
