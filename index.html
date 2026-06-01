@@ -6,66 +6,16 @@
   <title>Vale das Memórias — Preserve o que importa</title>
   <meta name="description" content="Um lugar onde as histórias da sua vida encontram palavras. Guarde suas memórias, para que as pessoas que você ama nunca se esqueçam de quem você foi." />
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            sage: {
-              50:  '#f3f8f5',
-              100: '#e4f0e9',
-              200: '#c6e0cf',
-              300: '#96c7a8',
-              400: '#5fa37d',
-              500: '#3d7a5c',
-              600: '#2d5c44',
-              700: '#1f4130',
-              800: '#16301f',
-              900: '#0e1f14',
-            },
-            warm: {
-              50:  '#fefcf8',
-              100: '#fdf7ed',
-              200: '#f9edd6',
-              300: '#f0d9ab',
-              400: '#e3bc72',
-              500: '#c4954a',
-            },
-            cream: '#fefcf8',
-          },
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-          },
-          animation: {
-            'fade-up': 'fadeUp 0.6s ease-out both',
-            'fade-in': 'fadeIn 0.8s ease-out both',
-            'float': 'float 6s ease-in-out infinite',
-          },
-          keyframes: {
-            fadeUp: {
-              '0%': { opacity: '0', transform: 'translateY(20px)' },
-              '100%': { opacity: '1', transform: 'translateY(0)' },
-            },
-            fadeIn: {
-              '0%': { opacity: '0' },
-              '100%': { opacity: '1' },
-            },
-            float: {
-              '0%, 100%': { transform: 'translateY(0px)' },
-              '50%': { transform: 'translateY(-10px)' },
-            },
-          },
-        },
-      },
-    }
-  </script>
+  <script src="/theme.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet" />
   <style>
-    body { font-family: 'Inter', system-ui, sans-serif; background-color: #fefcf8; }
-    ::selection { background: #3d7a5c; color: white; }
-    ::-webkit-scrollbar { width: 5px; }
-    ::-webkit-scrollbar-thumb { background: #3d7a5c; border-radius: 10px; }
+    body { font-family: 'Inter', system-ui, sans-serif; background-color: #FAF7F1; color: #1A2E26; }
+    h1, h2, h3, .font-serif { font-family: 'Fraunces', 'Lora', Georgia, serif; }
+    ::selection { background: #2D6A4F; color: #FAF7F1; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-thumb { background: rgba(45,106,79,0.45); border-radius: 10px; }
 
     .delay-100 { animation-delay: 100ms; }
     .delay-200 { animation-delay: 200ms; }
@@ -73,14 +23,14 @@
     .delay-500 { animation-delay: 500ms; }
 
     .gradient-text {
-      background: linear-gradient(135deg, #2d5c44 0%, #3d7a5c 40%, #8fbc9e 100%);
+      background: linear-gradient(135deg, #1F4D38 0%, #2D6A4F 45%, #4E8A6A 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
 
     .hero-glow {
-      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(61,122,92,0.12) 0%, transparent 70%);
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(45,106,79,0.12) 0%, transparent 70%);
     }
 
     .card-hover {
@@ -123,13 +73,14 @@
         <span class="font-semibold text-slate-900 tracking-tight">Vale das Memórias</span>
       </a>
       <!-- Nav links -->
-      <nav class="hidden md:flex items-center gap-7 text-sm text-slate-500">
-        <a href="#problema" class="hover:text-sage-600 transition-colors">O problema</a>
+      <nav class="hidden md:flex items-center gap-7 text-sm text-slate-500 font-sans">
         <a href="#como-funciona" class="hover:text-sage-600 transition-colors">Como funciona</a>
         <a href="#funcionalidades" class="hover:text-sage-600 transition-colors">Funcionalidades</a>
+        <a href="/get-started" class="hover:text-sage-600 transition-colors">Para você</a>
+        <a href="/partners" class="hover:text-sage-600 transition-colors">Para parceiros</a>
       </nav>
-      <a href="#waitlist" class="hidden md:inline-flex items-center gap-1.5 bg-sage-500 text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-sage-600 transition-colors shadow-sm">
-        Entrar na lista
+      <a href="/get-started" class="hidden md:inline-flex items-center gap-1.5 bg-sage-500 text-white text-sm font-semibold font-sans px-4 py-2 rounded-lg hover:bg-sage-600 transition-colors shadow-sm">
+        Começar agora
         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
       </a>
     </div>
@@ -141,7 +92,7 @@
     <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       <!-- Background -->
       <div class="absolute inset-0 hero-glow pointer-events-none"></div>
-      <div class="absolute inset-0 pointer-events-none" style="background-image: radial-gradient(circle, rgba(61,122,92,0.07) 1px, transparent 1px); background-size: 30px 30px;"></div>
+      <div class="absolute inset-0 pointer-events-none" style="background-image: radial-gradient(circle, rgba(45,106,79,0.07) 1px, transparent 1px); background-size: 30px 30px;"></div>
       <!-- Soft orbs -->
       <div class="absolute top-20 right-0 w-96 h-96 bg-sage-100 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
       <div class="absolute bottom-0 left-0 w-80 h-80 bg-warm-200 rounded-full blur-3xl opacity-40 pointer-events-none"></div>
@@ -349,7 +300,7 @@
         </div>
         <h2 class="reveal text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight mb-6" style="transition-delay: 100ms">
           As histórias mais importantes<br>
-          <span style="color: #c4a882">desaparecem em silêncio</span>
+          <span style="color: #C68B3A">desaparecem em silêncio</span>
         </h2>
         <p class="reveal text-lg text-white/60 max-w-2xl mx-auto mb-16 leading-relaxed" style="transition-delay: 200ms">
           Você já parou pra pensar em quantas histórias você nunca vai saber? As aventuras do seu avô quando jovem. A receita que sua avó sabia de cor. O conselho que seu pai queria te dar, mas nunca teve chance.
@@ -622,7 +573,7 @@
 
     <!-- ─── CTA FINAL ────────────────────────────────────────────────────── -->
     <section id="waitlist" class="py-24 bg-cream relative overflow-hidden">
-      <div class="absolute inset-0 pointer-events-none" style="background-image: radial-gradient(circle, rgba(61,122,92,0.07) 1px, transparent 1px); background-size: 24px 24px;"></div>
+      <div class="absolute inset-0 pointer-events-none" style="background-image: radial-gradient(circle, rgba(45,106,79,0.07) 1px, transparent 1px); background-size: 24px 24px;"></div>
       <div class="absolute top-0 right-0 w-80 h-80 bg-sage-100 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
       <div class="absolute bottom-0 left-0 w-64 h-64 bg-warm-200 rounded-full blur-3xl opacity-40 pointer-events-none"></div>
 
@@ -694,26 +645,27 @@
         <!-- Links -->
         <div class="flex flex-wrap gap-8 text-sm">
           <div>
-            <div class="text-white/30 text-xs font-semibold uppercase tracking-widest mb-3">Produto</div>
-            <ul class="space-y-2">
+            <div class="text-white/30 text-xs font-semibold uppercase tracking-widest mb-3 font-sans">Produto</div>
+            <ul class="space-y-2 font-sans">
               <li><a href="#como-funciona" class="text-white/50 hover:text-white transition-colors">Como funciona</a></li>
               <li><a href="#funcionalidades" class="text-white/50 hover:text-white transition-colors">Funcionalidades</a></li>
-              <li><a href="#waitlist" class="text-white/50 hover:text-white transition-colors">Entrar na lista</a></li>
+              <li><a href="/get-started" class="text-white/50 hover:text-white transition-colors">Criar minha conta</a></li>
+              <li><a href="/partners" class="text-white/50 hover:text-white transition-colors">Seja um parceiro</a></li>
             </ul>
           </div>
           <div>
-            <div class="text-white/30 text-xs font-semibold uppercase tracking-widest mb-3">Legal</div>
-            <ul class="space-y-2">
-              <li><a href="/privacidade" class="text-white/50 hover:text-white transition-colors">Privacidade</a></li>
-              <li><a href="/termos" class="text-white/50 hover:text-white transition-colors">Termos de uso</a></li>
-              <li><a href="/privacidade#direitos" class="text-white/50 hover:text-white transition-colors">LGPD</a></li>
+            <div class="text-white/30 text-xs font-semibold uppercase tracking-widest mb-3 font-sans">Legal</div>
+            <ul class="space-y-2 font-sans">
+              <li><a href="/privacy" class="text-white/50 hover:text-white transition-colors">Privacidade</a></li>
+              <li><a href="/terms" class="text-white/50 hover:text-white transition-colors">Termos de uso</a></li>
+              <li><a href="/privacy#direitos" class="text-white/50 hover:text-white transition-colors">LGPD</a></li>
             </ul>
           </div>
         </div>
       </div>
 
       <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/30">
-        <span>© 2025 Vale das Memórias. Todos os direitos reservados.</span>
+        <span>© 2026 Vale das Memórias. Todos os direitos reservados.</span>
         <span class="flex items-center gap-1">
           Feito com
           <svg class="w-3 h-3 text-warm-400 fill-warm-400 mx-0.5" viewBox="0 0 24 24"><path d="M12 21C12 21 4 13.5 4 8.5C4 5.5 6.5 3 9.5 3C11 3 12 4 12 4C12 4 13 3 14.5 3C17.5 3 20 5.5 20 8.5C20 13.5 12 21 12 21Z"/></svg>
