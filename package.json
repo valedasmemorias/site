@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  "scripts": {
+    "dev": "npx -y serve -l 8082 .",
+    "dev:vercel": "vercel dev --listen 8082"
+  },
   "dependencies": {
     "resend": "^4.0.1"
   }
