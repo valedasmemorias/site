@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Tokens espelhados de `@repo/ui-tokens/globals.css` (Tailwind/PostCSS não
+ * resolve import cross-package sem config extra). Manter em sincronia.
+ */
+@layer base {
+  :root {
+    --background: 38 67% 98%;
+    --foreground: 215 25% 17%;
+
+    --bg: 38 50% 96%;
+    --bg-warm: 38 45% 92%;
+    --bg-card: 0 0% 100%;
+
+    --primary: 153 41% 30%;
+    --primary-dark: 153 41% 20%;
+    --primary-light: 130 25% 92%;
+
+    --ink: 153 25% 14%;
+    --ink-soft: 150 10% 33%;
+    --ink-muted: 150 8% 57%;
+
+    --border-soft: 42 35% 91%;
+
+    --cat-familia: 348 38% 53%;
+    --cat-familia-bg: 350 60% 95%;
+    --cat-infancia: 30 56% 50%;
+    --cat-infancia-bg: 38 78% 94%;
+    --cat-trabalho: 207 35% 46%;
+    --cat-trabalho-bg: 207 40% 95%;
+  }
+
+  body {
+    background-color: hsl(var(--bg));
+    color: hsl(var(--ink));
+    font-family: var(--font-inter), system-ui, sans-serif;
+  }
+}
