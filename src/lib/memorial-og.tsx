@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 
 import type { PublicMemorialData } from './memorial-api';
-import { coverGradient, formatLifeDates, initials } from './memorial-format';
+import { coverGradient, formatLifeSpan, initials } from './memorial-format';
 
 /** Busca a capa e devolve um data-URI; null se faltar/falhar (cai no gradiente). */
 async function loadCover(url: string | null): Promise<string | null> {
@@ -23,7 +23,7 @@ export async function renderMemorialOgImage(
   size: { width: number; height: number },
 ): Promise<ImageResponse> {
   const { user } = data;
-  const lifeDates = formatLifeDates(user.birthDate, user.deceasedAt);
+  const lifeDates = formatLifeSpan(user.birthDate, user.deceasedAt);
   const cover = await loadCover(user.coverImageUrl);
 
   return new ImageResponse(

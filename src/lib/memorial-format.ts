@@ -18,13 +18,48 @@ export function formatMemoryDate(dateStr: string): string {
   });
 }
 
+// Datas de nascimento/falecimento vêm como `YYYY-MM-DD` (date-only). Formatamos
+// em UTC para não recuar um dia em fusos negativos (ex.: BRT).
 function year(dateStr: string | null): string | null {
   if (!dateStr) return null;
-  const y = new Date(dateStr).getFullYear();
+  const y = new Date(dateStr).getUTCFullYear();
   return Number.isNaN(y) ? null : String(y);
 }
 
-/** "1950 – 2026", "1950 –", ou null se sem datas. */
+/** Data por extenso em pt-BR, ex.: "12 de março de 1958". */
+export function formatFullDate(dateStr: string | null): string | null {
+  if (!dateStr) return null;
+  const d = new Date(dateStr);
+  if (Number.isNaN(d.getTime())) return null;
+  return d.toLocaleDateString('pt-BR', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    timeZone: 'UTC',
+  });
+}
+
+/**
+ * Texto do período de vida no cabeçalho.
+ * - Falecido: "1942 – 2024" (anos).
+ * - Em vida: "Nascido em 12 de março de 1958" (data por extenso).
+ */
+export function formatLifeSpan(
+  birthDate: string | null,
+  deceasedAt: string | null,
+): string | null {
+  if (deceasedAt) {
+    const birth = year(birthDate);
+    const death = year(deceasedAt);
+    if (birth && death) return `${birth} – ${death}`;
+    if (death) return `– ${death}`;
+    return null;
+  }
+  const born = formatFullDate(birthDate);
+  return born ? `Nascido em ${born}` : null;
+}
+
+/** Datas compactas (anos) — usado no card social. */
 export function formatLifeDates(
   birthDate: string | null,
   deceasedAt: string | null,

@@ -22,6 +22,21 @@ export interface MemorialChapter {
   category: string | null;
 }
 
+/**
+ * Homenagem de um conhecido (frase, foto ou vídeo). Recurso de "upload de
+ * conhecidos" — ainda não servido pelo agent (campo opcional; populado só no demo).
+ */
+export interface MemorialTribute {
+  id: string;
+  authorName: string;
+  relationship: string;
+  authorAvatarUrl: string | null;
+  type: 'phrase' | 'photo' | 'video';
+  message: string;
+  mediaUrl: string | null;
+  createdAt: string;
+}
+
 export interface PublicMemorialData {
   user: {
     name: string | null;
@@ -36,6 +51,8 @@ export interface PublicMemorialData {
   memories: PublicMemoryItem[];
   totalPublicMemories: number;
   chapters: MemorialChapter[] | null;
+  /** Homenagens de conhecidos (opcional; hoje só no demo). */
+  tributes?: MemorialTribute[] | null;
 }
 
 export async function getPublicMemorial(slug: string): Promise<PublicMemorialData | null> {
