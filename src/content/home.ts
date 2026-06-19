@@ -1,81 +1,18 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vale das Memórias — Preserve o que importa</title>
-  <meta name="description" content="Um lugar onde as histórias da sua vida encontram palavras. Guarde suas memórias, para que as pessoas que você ama nunca se esqueçam de quem você foi." />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="/theme.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet" />
-  <style>
-    body { font-family: 'Inter', system-ui, sans-serif; background-color: #FAF7F1; color: #1A2E26; }
-    h1, h2, h3, .font-serif { font-family: 'Fraunces', 'Lora', Georgia, serif; }
-    ::selection { background: #2D6A4F; color: #FAF7F1; }
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-thumb { background: rgba(45,106,79,0.45); border-radius: 10px; }
-
-    .delay-100 { animation-delay: 100ms; }
-    .delay-200 { animation-delay: 200ms; }
-    .delay-300 { animation-delay: 300ms; }
-    .delay-500 { animation-delay: 500ms; }
-
-    .gradient-text {
-      background: linear-gradient(135deg, #1F4D38 0%, #2D6A4F 45%, #4E8A6A 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero-glow {
-      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(45,106,79,0.12) 0%, transparent 70%);
-    }
-
-    .card-hover {
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .card-hover:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(26,46,36,0.10);
-    }
-
-    .memory-card {
-      animation: float 6s ease-in-out infinite;
-    }
-    .memory-card-2 {
-      animation: float 6s ease-in-out infinite;
-      animation-delay: -3s;
-    }
-
-    /* Reveal on scroll */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: none;
-    }
-  </style>
-</head>
-
-<body class="text-slate-800 antialiased">
-
-  <!-- ─── NAVBAR ─────────────────────────────────────────────────────────── -->
+/* GERADO de /Users/jhow/Works/valedasmemorias/site pelo script de migração — não editar à mão (regenerar). */
+/* eslint-disable */
+export const HOME_HTML = `<!-- ─── NAVBAR ─────────────────────────────────────────────────────────── -->
   <header class="fixed top-0 inset-x-0 z-50 transition-all duration-300" id="navbar">
     <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
       <!-- Logo -->
       <a href="#" class="flex items-center gap-2.5 group">
-        <img src="logo.png" alt="Vale das Memórias" class="h-9 w-9 object-contain group-hover:scale-105 transition-transform" />
+        <img src="/logo.png" alt="Vale das Memórias" class="h-9 w-9 object-contain group-hover:scale-105 transition-transform" />
         <span class="font-semibold text-slate-900 tracking-tight">Vale das Memórias</span>
       </a>
       <!-- Nav links -->
       <nav class="hidden md:flex items-center gap-7 text-sm text-slate-500 font-sans">
         <a href="#como-funciona" class="hover:text-sage-600 transition-colors">Como funciona</a>
         <a href="#funcionalidades" class="hover:text-sage-600 transition-colors">Funcionalidades</a>
+        <a href="#planos" class="hover:text-sage-600 transition-colors">Planos</a>
         <a href="/get-started" class="hover:text-sage-600 transition-colors">Para você</a>
         <a href="/partners" class="hover:text-sage-600 transition-colors">Para parceiros</a>
       </nav>
@@ -116,7 +53,7 @@
           </p>
 
           <!-- Waitlist form -->
-          <form id="hero-form" class="animate-fade-up delay-300" onsubmit="handleSubmit(event, 'hero-form')">
+          <form id="hero-form" class="animate-fade-up delay-300" data-subscribe>
             <div class="flex flex-col sm:flex-row gap-3 max-w-md">
               <input
                 type="email"
@@ -570,6 +507,79 @@
         </div>
       </div>
     </section>
+    <!-- ─── PLANOS (comparativo de recursos, sem preços) ───────────────── -->
+    <section id="planos" class="py-24 bg-white">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-14">
+          <div class="reveal inline-flex items-center gap-2 bg-sage-50 text-sage-600 text-xs font-semibold px-4 py-2 rounded-full mb-6">Planos</div>
+          <h2 class="reveal text-3xl md:text-5xl font-semibold text-ink tracking-tight leading-tight mb-4" style="transition-delay:100ms">
+            Comece grátis,<br>evolua quando quiser
+          </h2>
+          <p class="reveal text-lg text-slate-500 max-w-xl mx-auto leading-relaxed" style="transition-delay:200ms">
+            Você começa no plano Gratuito. A assinatura dos planos pagos é feita dentro do aplicativo (App Store e Google Play).
+          </p>
+        </div>
+        <div class="reveal grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" style="transition-delay:300ms">
+          <div class="rounded-2xl border border-border-soft bg-cream p-7 flex flex-col">
+            
+            <h3 class="text-2xl font-semibold text-ink mb-1">Gratuito</h3>
+            <p class="text-sm text-slate-500 mb-5">Para começar a guardar suas primeiras histórias.</p>
+            <ul class="space-y-3 text-sm flex-1">
+              <li class="flex items-center gap-2 text-ink"><span class="text-sage-600">✓</span> Até 10 memórias guardadas</li>
+              <li class="flex items-center gap-2 text-ink"><span class="text-sage-600">✓</span> Memorial público</li>
+              <li class="flex items-center gap-2 text-slate-400"><span>✕</span> Cápsula do tempo</li>
+              <li class="flex items-center gap-2 text-slate-400"><span>✕</span> Capítulos da vida</li>
+              <li class="flex items-center gap-2 text-slate-400"><span>✕</span> Entrada por áudio</li>
+            </ul>
+            <a href="/get-started" class="mt-6 inline-flex justify-center bg-sage-500 text-white font-semibold px-5 py-3 rounded-xl hover:bg-sage-600 transition-colors text-sm">Baixar o app</a>
+          </div>
+
+          <div class="rounded-2xl border border-border-soft bg-cream p-7 flex flex-col">
+            
+            <h3 class="text-2xl font-semibold text-ink mb-1">Semente</h3>
+            <p class="text-sm text-slate-500 mb-5">Memórias sem limite para registrar tudo.</p>
+            <ul class="space-y-3 text-sm flex-1">
+              <li class="flex items-center gap-2 text-ink"><span class="text-sage-600">✓</span> Memórias ilimitadas</li>
+              <li class="flex items-center gap-2 text-ink"><span class="text-sage-600">✓</span> Memorial público</li>
+              <li class="flex items-center gap-2 text-slate-400"><span>✕</span> Cápsula do tempo</li>
+              <li class="flex items-center gap-2 text-slate-400"><span>✕</span> Capítulos da vida</li>
+              <li class="flex items-center gap-2 text-slate-400"><span>✕</span> Entrada por áudio</li>
+            </ul>
+            <a href="/get-started" class="mt-6 inline-flex justify-center bg-sage-500 text-white font-semibold px-5 py-3 rounded-xl hover:bg-sage-600 transition-colors text-sm">Baixar o app</a>
+          </div>
+
+          <div class="rounded-2xl border border-border-soft bg-cream p-7 flex flex-col">
+            
+            <h3 class="text-2xl font-semibold text-ink mb-1">Raízes</h3>
+            <p class="text-sm text-slate-500 mb-5">Inclui a Cápsula do tempo para o futuro.</p>
+            <ul class="space-y-3 text-sm flex-1">
+              <li class="flex items-center gap-2 text-ink"><span class="text-sage-600">✓</span> Memórias ilimitadas</li>
+              <li class="flex items-center gap-2 text-ink"><span class="text-sage-600">✓</span> Memorial público</li>
+              <li class="flex items-center gap-2 text-ink"><span class="text-sage-600">✓</span> Cápsula do tempo</li>
+              <li class="flex items-center gap-2 text-slate-400"><span>✕</span> Capítulos da vida</li>
+              <li class="flex items-center gap-2 text-slate-400"><span>✕</span> Entrada por áudio</li>
+            </ul>
+            <a href="/get-started" class="mt-6 inline-flex justify-center bg-sage-500 text-white font-semibold px-5 py-3 rounded-xl hover:bg-sage-600 transition-colors text-sm">Baixar o app</a>
+          </div>
+
+          <div class="rounded-2xl border-2 border-sage-300 bg-sage-50 p-7 flex flex-col relative">
+            <span class="absolute -top-3 left-7 bg-sage-500 text-white text-[11px] font-semibold px-3 py-1 rounded-full font-sans">Mais completo</span>
+            <h3 class="text-2xl font-semibold text-ink mb-1">Legado</h3>
+            <p class="text-sm text-slate-500 mb-5">A experiência completa, com todos os recursos.</p>
+            <ul class="space-y-3 text-sm flex-1">
+              <li class="flex items-center gap-2 text-ink"><span class="text-sage-600">✓</span> Memórias ilimitadas</li>
+              <li class="flex items-center gap-2 text-ink"><span class="text-sage-600">✓</span> Memorial público</li>
+              <li class="flex items-center gap-2 text-ink"><span class="text-sage-600">✓</span> Cápsula do tempo</li>
+              <li class="flex items-center gap-2 text-ink"><span class="text-sage-600">✓</span> Capítulos da vida</li>
+              <li class="flex items-center gap-2 text-ink"><span class="text-sage-600">✓</span> Entrada por áudio</li>
+            </ul>
+            <a href="/get-started" class="mt-6 inline-flex justify-center bg-sage-500 text-white font-semibold px-5 py-3 rounded-xl hover:bg-sage-600 transition-colors text-sm">Baixar o app</a>
+          </div>
+        </div>
+        <p class="text-center text-xs text-slate-400 mt-8">Recursos de cada plano. Você pode mudar de plano quando quiser, direto no app.</p>
+      </div>
+    </section>
+
 
     <!-- ─── CTA FINAL ────────────────────────────────────────────────────── -->
     <section id="waitlist" class="py-24 bg-cream relative overflow-hidden">
@@ -590,7 +600,7 @@
           Junte-se a centenas de famílias que já estão preservando o que importa. Entre na lista de espera e seja um dos primeiros a usar o Vale das Memórias.
         </p>
 
-        <form id="cta-form" class="reveal" style="transition-delay: 300ms" onsubmit="handleSubmit(event, 'cta-form')">
+        <form id="cta-form" class="reveal" style="transition-delay: 300ms" data-subscribe>
           <div class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-4">
             <input
               type="email"
@@ -634,7 +644,7 @@
         <!-- Brand -->
         <div>
           <div class="flex items-center gap-2.5 mb-3">
-            <img src="logo.png" alt="Vale das Memórias" class="h-9 w-9 object-contain" />
+            <img src="/logo.png" alt="Vale das Memórias" class="h-9 w-9 object-contain" />
             <span class="font-semibold text-white">Vale das Memórias</span>
           </div>
           <p class="text-white/40 text-sm max-w-xs leading-relaxed">
@@ -649,6 +659,7 @@
             <ul class="space-y-2 font-sans">
               <li><a href="#como-funciona" class="text-white/50 hover:text-white transition-colors">Como funciona</a></li>
               <li><a href="#funcionalidades" class="text-white/50 hover:text-white transition-colors">Funcionalidades</a></li>
+              <li><a href="#planos" class="text-white/50 hover:text-white transition-colors">Planos</a></li>
               <li><a href="/get-started" class="text-white/50 hover:text-white transition-colors">Criar minha conta</a></li>
               <li><a href="/partners" class="text-white/50 hover:text-white transition-colors">Seja um parceiro</a></li>
             </ul>
@@ -673,90 +684,4 @@
         </span>
       </div>
     </div>
-  </footer>
-
-  <script>
-    // ── Navbar scroll effect ──────────────────────────────────────────────
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 30) {
-        navbar.classList.add('bg-white/95', 'backdrop-blur-md', 'border-b', 'border-slate-100', 'shadow-sm');
-        navbar.classList.remove('bg-transparent');
-      } else {
-        navbar.classList.remove('bg-white/95', 'backdrop-blur-md', 'border-b', 'border-slate-100', 'shadow-sm');
-        navbar.classList.add('bg-transparent');
-      }
-    });
-
-    // ── Reveal on scroll ─────────────────────────────────────────────────
-    const reveals = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    reveals.forEach(el => io.observe(el));
-
-    // ── Form submit handler ───────────────────────────────────────────────
-    async function handleSubmit(event, formId) {
-      event.preventDefault();
-      const form = document.getElementById(formId);
-      const input = form.querySelector('input[type="email"]');
-      const button = form.querySelector('button[type="submit"]');
-      const email = input.value.trim();
-
-      const originalButtonText = button.innerHTML;
-      input.disabled = true;
-      button.disabled = true;
-      button.innerHTML = 'Enviando...';
-      button.classList.add('opacity-70', 'cursor-not-allowed');
-
-      try {
-        const response = await fetch('/api/subscribe', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email, source: formId }),
-        });
-
-        if (!response.ok) {
-          const data = await response.json().catch(() => ({}));
-          throw new Error(data.error || 'Não foi possível enviar agora. Tente novamente.');
-        }
-
-        // Replace form with success message
-        form.innerHTML = `
-          <div class="flex flex-col items-center gap-3 py-4 animate-fade-in">
-            <div class="w-12 h-12 bg-sage-100 rounded-full flex items-center justify-center">
-              <svg class="w-6 h-6 text-sage-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
-              </svg>
-            </div>
-            <div>
-              <p class="font-semibold text-slate-800 mb-1">Você está na lista! 🎉</p>
-              <p class="text-sm text-slate-500">Entraremos em contato em breve no e-mail <strong>${email}</strong>.</p>
-            </div>
-          </div>
-        `;
-      } catch (err) {
-        let errorEl = form.querySelector('[data-error]');
-        if (!errorEl) {
-          errorEl = document.createElement('p');
-          errorEl.setAttribute('data-error', '');
-          errorEl.className = 'text-xs text-red-500 mt-3';
-          form.appendChild(errorEl);
-        }
-        errorEl.textContent = err.message || 'Não foi possível enviar agora. Tente novamente.';
-
-        input.disabled = false;
-        button.disabled = false;
-        button.innerHTML = originalButtonText;
-        button.classList.remove('opacity-70', 'cursor-not-allowed');
-      }
-    }
-  </script>
-
-</body>
-</html>
+  </footer>`;

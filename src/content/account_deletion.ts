@@ -1,37 +1,10 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Exclusão de Conta — Vale das Memórias</title>
-  <meta name="description" content="Como excluir sua conta e seus dados pessoais no aplicativo Vale das Memórias." />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="/theme.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet" />
-  <style>
-    body { background-color: #FAF7F1; color: #1A2E26; }
-    h1, h2, h3, .font-serif { font-family: 'Fraunces', 'Lora', Georgia, serif; }
-    .prose h2 { font-family: 'Fraunces', Georgia, serif; color: #1F4D38; font-size: 1.25rem; font-weight: 600; margin-top: 2rem; margin-bottom: 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid #F0EBDD; }
-    .prose p  { color: #34433C; font-size: 0.9375rem; line-height: 1.75; margin-bottom: 0.75rem; }
-    .prose ul { color: #34433C; font-size: 0.9375rem; line-height: 1.75; margin-bottom: 0.75rem; padding-left: 1.5rem; list-style-type: disc; }
-    .prose ul li { margin-bottom: 0.25rem; }
-    .prose ol  { color: #34433C; font-size: 0.9375rem; line-height: 1.75; margin-bottom: 0.75rem; padding-left: 1.5rem; list-style-type: decimal; }
-    .prose ol li { margin-bottom: 0.5rem; }
-    .prose strong { color: #1F4D38; font-weight: 600; }
-    .prose a { color: #2D6A4F; text-decoration: underline; }
-    .prose a:hover { color: #1F4D38; }
-    .badge { display: inline-flex; align-items: center; background-color: #E8F0EA; color: #235741; font-size: 0.75rem; font-weight: 600; padding: 0.2rem 0.65rem; border-radius: 9999px; font-family: 'Inter', sans-serif; }
-  </style>
-</head>
-<body class="font-sans antialiased">
-
-  <!-- ─── NAVBAR ─────────────────────────────────────────────────────────── -->
+/* GERADO de /Users/jhow/Works/valedasmemorias/site pelo script de migração — não editar à mão (regenerar). */
+/* eslint-disable */
+export const ACCOUNT_DELETION_HTML = `<!-- ─── NAVBAR ─────────────────────────────────────────────────────────── -->
   <nav class="sticky top-0 z-50 bg-cream/90 backdrop-blur-sm border-b border-sage-100/60">
     <div class="max-w-4xl mx-auto px-6 h-14 flex items-center justify-between">
       <a href="/" class="flex items-center gap-2.5">
-        <img src="logo.png" alt="" class="h-7 w-7 object-contain" />
+        <img src="/logo.png" alt="" class="h-7 w-7 object-contain" />
         <span class="font-semibold text-sage-800 text-sm">Vale das Memórias</span>
       </a>
       <a href="/" class="text-xs text-sage-600 hover:text-sage-800 transition-colors font-medium">← Voltar ao início</a>
@@ -108,7 +81,4 @@
         <a href="/" class="hover:text-white transition-colors">Início</a>
       </nav>
     </div>
-  </footer>
-
-</body>
-</html>
+  </footer>`;

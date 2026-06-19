@@ -1,37 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Seja um parceiro — Vale das Memórias</title>
-  <meta name="description" content="Leve a preservação humanizada de memórias e legado para a sua empresa. Torne-se um parceiro do Vale das Memórias e ofereça uma experiência única às famílias." />
-  <link rel="icon" href="/logo.png" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="/theme.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet" />
-  <style>
-    body { font-family: 'Inter', system-ui, sans-serif; background-color: #FAF7F1; color: #1A2E26; }
-    h1, h2, h3, .font-serif { font-family: 'Fraunces', 'Lora', Georgia, serif; }
-    ::selection { background: #2D6A4F; color: #FAF7F1; }
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-thumb { background: rgba(45,106,79,0.45); border-radius: 10px; }
-
-    .gradient-text {
-      background: linear-gradient(135deg, #1F4D38 0%, #2D6A4F 45%, #4E8A6A 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    }
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
-    .card-hover { transition: all .3s cubic-bezier(.4,0,.2,1); }
-    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(26,46,36,.10); }
-  </style>
-</head>
-
-<body class="antialiased">
-
-  <!-- ─── NAVBAR ─────────────────────────────────────────────────────────── -->
+/* GERADO de /Users/jhow/Works/valedasmemorias/site pelo script de migração — não editar à mão (regenerar). */
+/* eslint-disable */
+export const PARTNERS_HTML = `<!-- ─── NAVBAR ─────────────────────────────────────────────────────────── -->
   <header class="fixed top-0 inset-x-0 z-50 transition-all duration-300" id="navbar">
     <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
       <a href="/" class="flex items-center gap-2.5 group">
@@ -197,8 +166,8 @@
             <p class="text-sm text-slate-500 leading-relaxed">Um espaço público e respeitoso para celebrar a vida e compartilhar a história com quem amou.</p>
           </div>
           <div class="reveal card-hover bg-white rounded-2xl p-7 border border-border-soft shadow-sm" style="transition-delay:240ms">
-            <h3 class="font-semibold text-ink mb-2">Conversa via WhatsApp</h3>
-            <p class="text-sm text-slate-500 leading-relaxed">As famílias registram memórias pelo canal que já usam todo dia, sem instalar nada.</p>
+            <h3 class="font-semibold text-ink mb-2">Capítulos da vida</h3>
+            <p class="text-sm text-slate-500 leading-relaxed">Uma linha do tempo dos momentos que marcaram a trajetória, contada com sensibilidade.</p>
           </div>
           <div class="reveal card-hover bg-white rounded-2xl p-7 border border-border-soft shadow-sm" style="transition-delay:320ms">
             <h3 class="font-semibold text-ink mb-2">Cápsula do tempo</h3>
@@ -259,7 +228,7 @@
           </p>
         </div>
 
-        <form id="parceiro-form" class="bg-white rounded-2xl p-6 sm:p-8 shadow-card space-y-5" onsubmit="handleParceiroSubmit(event)">
+        <form id="parceiro-form" class="bg-white rounded-2xl p-6 sm:p-8 shadow-card space-y-5" >
           <div>
             <label class="block text-sm font-medium text-ink mb-1.5" for="companyName">Nome da empresa *</label>
             <input id="companyName" name="companyName" type="text" required maxlength="200" placeholder="Ex.: Funerária São José"
@@ -285,7 +254,7 @@
                 class="w-full px-4 py-3 rounded-xl border border-border-soft bg-cream text-ink placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sage-400 focus:border-transparent transition-all text-sm" />
             </div>
             <div>
-              <label class="block text-sm font-medium text-ink mb-1.5" for="phone">Telefone / WhatsApp</label>
+              <label class="block text-sm font-medium text-ink mb-1.5" for="phone">Telefone</label>
               <input id="phone" name="phone" type="tel" placeholder="(00) 00000-0000"
                 class="w-full px-4 py-3 rounded-xl border border-border-soft bg-cream text-ink placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sage-400 focus:border-transparent transition-all text-sm" />
             </div>
@@ -339,86 +308,4 @@
         © 2026 Vale das Memórias. Todos os direitos reservados.
       </div>
     </div>
-  </footer>
-
-  <script>
-    // Navbar scroll effect
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 30) {
-        navbar.classList.add('bg-white/95', 'backdrop-blur-md', 'border-b', 'border-border-soft', 'shadow-sm');
-      } else {
-        navbar.classList.remove('bg-white/95', 'backdrop-blur-md', 'border-b', 'border-border-soft', 'shadow-sm');
-      }
-    });
-
-    // Reveal on scroll
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-    // CNPJ mask
-    const cnpjInput = document.getElementById('cnpj');
-    cnpjInput.addEventListener('input', (e) => {
-      let v = e.target.value.replace(/\D/g, '').slice(0, 14);
-      v = v.replace(/^(\d{2})(\d)/, '$1.$2')
-           .replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3')
-           .replace(/\.(\d{3})(\d)/, '.$1/$2')
-           .replace(/(\d{4})(\d)/, '$1-$2');
-      e.target.value = v;
-    });
-
-    // Form submit
-    async function handleParceiroSubmit(event) {
-      event.preventDefault();
-      const form = event.target;
-      const button = form.querySelector('button[type="submit"]');
-      const original = button.innerHTML;
-      const payload = {
-        companyName: form.companyName.value.trim(),
-        cnpj: form.cnpj.value.trim(),
-        responsibleName: form.responsibleName.value.trim(),
-        email: form.email.value.trim(),
-        phone: form.phone.value.trim(),
-        message: form.message.value.trim(),
-      };
-
-      button.disabled = true;
-      button.innerHTML = 'Enviando...';
-      button.classList.add('opacity-70', 'cursor-not-allowed');
-      const prevError = form.querySelector('[data-error]');
-      if (prevError) prevError.remove();
-
-      try {
-        const res = await fetch('/api/partner', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-        });
-        if (!res.ok) {
-          const data = await res.json().catch(() => ({}));
-          throw new Error(data.error || 'Não foi possível enviar agora. Tente novamente.');
-        }
-        form.innerHTML = `
-          <div class="flex flex-col items-center text-center gap-3 py-6">
-            <div class="w-14 h-14 bg-sage-100 rounded-full flex items-center justify-center">
-              <svg class="w-7 h-7 text-sage-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-            </div>
-            <h3 class="text-xl font-semibold text-ink">Cadastro recebido! 🎉</h3>
-            <p class="text-sm text-slate-500 max-w-sm">Enviamos uma confirmação para <strong>${payload.email}</strong>. Estamos analisando os dados e em breve entraremos em contato com os próximos passos.</p>
-          </div>`;
-      } catch (err) {
-        const errorEl = document.createElement('p');
-        errorEl.setAttribute('data-error', '');
-        errorEl.className = 'text-sm text-red-500 text-center';
-        errorEl.textContent = err.message;
-        form.insertBefore(errorEl, button.nextSibling);
-        button.disabled = false;
-        button.innerHTML = original;
-        button.classList.remove('opacity-70', 'cursor-not-allowed');
-      }
-    }
-  </script>
-</body>
-</html>
+  </footer>`;
