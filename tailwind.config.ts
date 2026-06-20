@@ -1,6 +1,6 @@
 import type { Config } from 'tailwindcss';
 import defaultTheme from 'tailwindcss/defaultTheme';
-import { tailwindPreset } from '@repo/ui-tokens';
+import { tailwindPreset } from './src/lib/ui-tokens-preset';
 
 /*
  * Paleta do site de marketing. Espelha o `theme.js` legado (`../site/theme.js`):

@@ -1,13 +1,20 @@
 {
-  "extends": "@repo/typescript-config/nextjs.json",
+  "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowJs": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "lib": ["ES2022", "dom", "dom.iterable"],
+    "plugins": [{ "name": "next" }],
     "paths": {
-      "@repo/ui-tokens": ["../../packages/ui-tokens/src/index.ts"],
       "@/*": ["./src/*"]
     },
     "noEmit": true,
