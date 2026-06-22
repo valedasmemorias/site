@@ -1,9 +1,5 @@
-/**
- * Cliente server-side do memorial público. Consome a API do `apps/agent`
- * (endpoint público, sem auth). Espelha o `PublicMemorialDto` do agent.
- */
-
-const AGENT_URL = process.env.AGENT_URL ?? 'http://localhost:3001';
+const API_URL = process.env.VDM_API_URL || 'https://api.valedasmemorias.com.br';
+const AGENT_BASE = `${API_URL}/agent`;
 
 export interface PublicMemoryItem {
   id: string;
@@ -58,7 +54,7 @@ export interface PublicMemorialData {
 export async function getPublicMemorial(slug: string): Promise<PublicMemorialData | null> {
   let res: Response;
   try {
-    res = await fetch(`${AGENT_URL}/memorial/${encodeURIComponent(slug)}/public`, {
+    res = await fetch(`${AGENT_BASE}/memorial/${encodeURIComponent(slug)}/public`, {
       next: { revalidate: 300 },
     });
   } catch {
@@ -73,7 +69,7 @@ export async function activateMemorial(
 ): Promise<{ memorialSlug: string } | { error: string }> {
   let res: Response;
   try {
-    res = await fetch(`${AGENT_URL}/memorial/activate`, {
+    res = await fetch(`${AGENT_BASE}/memorial/activate`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ token }),
