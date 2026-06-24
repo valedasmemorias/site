@@ -35,7 +35,6 @@ export const DEMO_MEMORIAL_DECEASED: PublicMemorialData = {
       title: 'O fusca azul',
       category: 'familia',
       visibility: 'public',
-      isSealed: false,
       content:
         'Comprei meu primeiro carro, um fusca azul 1971, com o primeiro salário da fábrica. ' +
         'Levei a Dona Cida pra namorar na beira da represa naquele mesmo dia. Aquele carro ' +
@@ -47,7 +46,6 @@ export const DEMO_MEMORIAL_DECEASED: PublicMemorialData = {
       title: 'A padaria da esquina',
       category: 'trabalho',
       visibility: 'public',
-      isSealed: false,
       content:
         'Trabalhei 30 anos na padaria do seu Antônio. Aprendi que pão bom é pão feito com ' +
         'paciência, de madrugada, quando a cidade ainda dorme.',
@@ -58,7 +56,6 @@ export const DEMO_MEMORIAL_DECEASED: PublicMemorialData = {
       title: 'O título de 1976',
       category: 'conquistas',
       visibility: 'public',
-      isSealed: false,
       content:
         'Estava no Mineirão no dia do título. Abracei estranhos como se fossem irmãos. ' +
         'Voltei pra casa rouco e feliz, carregando o Pedrinho nos ombros.',
@@ -69,7 +66,6 @@ export const DEMO_MEMORIAL_DECEASED: PublicMemorialData = {
       title: 'Conselho para os netos',
       category: 'valores',
       visibility: 'public',
-      isSealed: false,
       content:
         'Trabalhem com honestidade, amem com coragem e nunca tenham vergonha de chorar. ' +
         'A vida é curta demais pra guardar mágoa.',
@@ -165,7 +161,6 @@ export const DEMO_MEMORIAL_LIVING: PublicMemorialData = {
       title: 'Minha primeira sala de aula',
       category: 'trabalho',
       visibility: 'public',
-      isSealed: false,
       content:
         'Em 1979 entrei pela primeira vez numa sala de aula como professora. Trinta e dois ' +
         'pares de olhos me encarando. Foi paixão à primeira vista — segui por 38 anos.',
@@ -176,7 +171,6 @@ export const DEMO_MEMORIAL_LIVING: PublicMemorialData = {
       title: 'O Carnaval de 1985',
       category: 'amor',
       visibility: 'public',
-      isSealed: false,
       content:
         'Conheci o Roberto atrás do trio elétrico. Ele pisou no meu pé três vezes dançando, ' +
         'mas tinha o sorriso mais bonito da Bahia. Casamos no ano seguinte.',
@@ -187,7 +181,6 @@ export const DEMO_MEMORIAL_LIVING: PublicMemorialData = {
       title: 'A receita da minha avó',
       category: 'familia',
       visibility: 'public',
-      isSealed: false,
       content:
         'Guardo até hoje o caderno de receitas da minha avó. O bolo de aipim dela é o ' +
         'cheiro da minha infância — agora ensino para os meus netos.',

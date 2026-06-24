@@ -6,7 +6,6 @@ export interface PublicMemoryItem {
   title: string | null;
   category: string | null;
   visibility: string;
-  isSealed: boolean;
   content: string | null;
   createdAt: string;
 }
