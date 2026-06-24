@@ -19,7 +19,7 @@ export const PRIVACY_HTML = `<!-- ─── NAVBAR ─────────�
       <p class="text-sage-600 text-base max-w-2xl">
         Transparência total sobre como coletamos, usamos e protegemos seus dados pessoais na plataforma Vale das Memórias.
       </p>
-      <p class="mt-4 text-xs text-sage-500">Última atualização: 15 de maio de 2025 &nbsp;·&nbsp; Versão 1.0</p>
+      <p class="mt-4 text-xs text-sage-500">Última atualização: 24 de junho de 2026 &nbsp;·&nbsp; Versão 1.1</p>
     </div>
   </header>
 
@@ -85,7 +85,7 @@ export const PRIVACY_HTML = `<!-- ─── NAVBAR ─────────�
       <h3>3.1 Dados fornecidos pelo usuário</h3>
       <ul>
         <li><strong>Identificação:</strong> nome completo, apelido ou nome do homenageado.</li>
-        <li><strong>Contato:</strong> endereço de e-mail e/ou número de telefone (celular com DDD), utilizados para autenticação via link mágico.</li>
+        <li><strong>Contato:</strong> endereço de e-mail e/ou número de telefone (celular com DDD), utilizados para autenticação via código ou link de acesso de uso único.</li>
         <li><strong>Conteúdo do memorial:</strong> textos, histórias, memórias, fotografias, vídeos, documentos e demais arquivos enviados pelo usuário para compor o memorial.</li>
         <li><strong>Dados de configuração:</strong> preferências de personalização do memorial (cores, layout, título).</li>
       </ul>
@@ -93,7 +93,7 @@ export const PRIVACY_HTML = `<!-- ─── NAVBAR ─────────�
       <h3>3.2 Dados coletados automaticamente</h3>
       <ul>
         <li><strong>Dados de acesso:</strong> endereço IP, tipo e versão do navegador, sistema operacional, páginas visitadas, data e hora de acesso, referência de origem.</li>
-        <li><strong>Dados de sessão:</strong> tokens de autenticação (link mágico), identificadores de sessão.</li>
+        <li><strong>Dados de sessão:</strong> tokens de autenticação (código ou link de acesso de uso único), identificadores de sessão.</li>
         <li><strong>Dados de uso:</strong> interações com a plataforma (criação/edição/exclusão de memórias, tempo de sessão).</li>
       </ul>
 
@@ -119,7 +119,7 @@ export const PRIVACY_HTML = `<!-- ─── NAVBAR ─────────�
           </thead>
           <tbody class="text-sage-800">
             <tr>
-              <td class="p-3 border border-sage-200">Autenticação e acesso seguro à plataforma (link mágico)</td>
+              <td class="p-3 border border-sage-200">Autenticação e acesso seguro à plataforma (código ou link de uso único)</td>
               <td class="p-3 border border-sage-200">Execução de contrato — art. 7º, V</td>
             </tr>
             <tr class="bg-sage-50/40">
@@ -127,7 +127,7 @@ export const PRIVACY_HTML = `<!-- ─── NAVBAR ─────────�
               <td class="p-3 border border-sage-200">Execução de contrato — art. 7º, V</td>
             </tr>
             <tr>
-              <td class="p-3 border border-sage-200">Envio de link de acesso por e-mail ou SMS</td>
+              <td class="p-3 border border-sage-200">Envio de código ou link de acesso por e-mail ou SMS</td>
               <td class="p-3 border border-sage-200">Execução de contrato — art. 7º, V</td>
             </tr>
             <tr class="bg-sage-50/40">
@@ -171,7 +171,7 @@ export const PRIVACY_HTML = `<!-- ─── NAVBAR ─────────�
       <ul>
         <li><strong>Dados de conta e memorial:</strong> enquanto a conta estiver ativa e, após o encerramento, por até <strong>5 anos</strong> para cumprimento de obrigações legais (ex.: fiscais, trabalhistas).</li>
         <li><strong>Logs de acesso:</strong> mínimo de <strong>6 meses</strong>, conforme art. 15 do Marco Civil da Internet (Lei nº 12.965/2014).</li>
-        <li><strong>Tokens de autenticação (link mágico):</strong> até 1 hora após a emissão ou após o primeiro uso.</li>
+        <li><strong>Tokens de autenticação (código ou link de uso único):</strong> até 1 hora após a emissão ou após o primeiro uso.</li>
         <li><strong>Dados de suporte:</strong> até 2 anos após o encerramento do chamado.</li>
       </ul>
       <p>
@@ -203,7 +203,7 @@ export const PRIVACY_HTML = `<!-- ─── NAVBAR ─────────�
       <ul>
         <li>Transmissão de dados criptografada via HTTPS/TLS.</li>
         <li>Armazenamento em infraestrutura de nuvem com controles de acesso baseados em função (RBAC).</li>
-        <li>Autenticação por link mágico de uso único com validade limitada — eliminando o risco de roubo de senha.</li>
+        <li>Autenticação por código ou link de acesso de uso único com validade limitada — eliminando o risco de roubo de senha.</li>
         <li>Logs de acesso e auditoria de operações sensíveis.</li>
         <li>Acesso restrito aos dados por pessoal autorizado, sob sigilo.</li>
         <li>Revisões periódicas de segurança e vulnerabilidades.</li>

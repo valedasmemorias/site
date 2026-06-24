@@ -19,7 +19,7 @@ export const TERMS_HTML = `<!-- ─── NAVBAR ──────────�
       <p class="text-sage-600 text-base max-w-2xl">
         Condições que regem o uso da plataforma Vale das Memórias. Ao utilizar nosso serviço, você concorda com estes termos.
       </p>
-      <p class="mt-4 text-xs text-sage-500">Última atualização: 15 de maio de 2025 &nbsp;·&nbsp; Versão 1.0</p>
+      <p class="mt-4 text-xs text-sage-500">Última atualização: 24 de junho de 2026 &nbsp;·&nbsp; Versão 1.1</p>
     </div>
   </header>
 
@@ -92,9 +92,9 @@ export const TERMS_HTML = `<!-- ─── NAVBAR ──────────�
       <!-- 4 -->
       <h2 id="conta">4. Conta e Acesso</h2>
 
-      <h3>4.1 Link mágico</h3>
+      <h3>4.1 Acesso por código ou link de uso único</h3>
       <p>
-        A autenticação na Plataforma é realizada por meio de <strong>link de acesso de uso único</strong> (<em>magic link</em>), enviado ao e-mail ou telefone cadastrado. O link possui validade limitada e não pode ser reutilizado.
+        A autenticação na Plataforma é realizada por meio de <strong>código ou link de acesso de uso único</strong> (<em>one-time code</em> / <em>magic link</em>), enviado ao e-mail ou telefone cadastrado. O código ou link possui validade limitada e não pode ser reutilizado.
       </p>
 
       <h3>4.2 Responsabilidade pelo acesso</h3>
@@ -164,13 +164,24 @@ export const TERMS_HTML = `<!-- ─── NAVBAR ──────────�
       <!-- 8 -->
       <h2 id="planos">8. Planos e Pagamento</h2>
       <p>
-        A Plataforma poderá oferecer planos gratuitos e pagos. As condições de cada plano (preço, funcionalidades, vigência e forma de renovação) serão descritas na página de planos no momento da contratação.
+        A Plataforma poderá oferecer planos gratuitos e pagos. As condições de cada plano (título, preço, funcionalidades, duração e forma de renovação) serão descritas na página de planos ou na tela de assinatura do aplicativo no momento da contratação.
       </p>
       <ul>
         <li><strong>Período de teste:</strong> quando oferecido, o período de teste gratuito é válido por prazo determinado, após o qual o plano será convertido ou cancelado conforme as condições informadas.</li>
-        <li><strong>Renovação:</strong> planos pagos renovam-se automaticamente no período indicado, salvo cancelamento pelo usuário antes do vencimento.</li>
+        <li><strong>Renovação automática:</strong> as assinaturas pagas são <strong>renováveis automaticamente</strong> e renovam-se ao final de cada período (por exemplo, mensal) pelo preço vigente, salvo cancelamento pelo usuário antes da data de renovação.</li>
         <li><strong>Cancelamento:</strong> o cancelamento pode ser solicitado a qualquer momento; o acesso permanece até o fim do período já pago.</li>
-        <li><strong>Reembolso:</strong> reembolsos serão concedidos em conformidade com o Código de Defesa do Consumidor (Lei nº 8.078/1990), incluindo o direito de arrependimento de 7 dias para contratos firmados à distância.</li>
+        <li><strong>Reembolso:</strong> reembolsos serão concedidos em conformidade com o Código de Defesa do Consumidor (Lei nº 8.078/1990), incluindo o direito de arrependimento de 7 dias para contratos firmados à distância. Para compras realizadas por lojas de aplicativos, aplica-se também a política de reembolso da respectiva loja, conforme o item 8.1.</li>
+      </ul>
+
+      <h3>8.1 Assinaturas adquiridas em lojas de aplicativos (App Store e Google Play)</h3>
+      <p>
+        Quando a assinatura é contratada dentro do nosso aplicativo móvel, o pagamento é processado pela <strong>Apple App Store</strong> ou pelo <strong>Google Play</strong>, e não diretamente pela Vale das Memórias. Nesses casos:
+      </p>
+      <ul>
+        <li>A cobrança e a <strong>renovação automática</strong> são geridas pela loja, conforme a conta e a forma de pagamento que você mantém junto a ela;</li>
+        <li>O <strong>gerenciamento e o cancelamento</strong> da assinatura são feitos diretamente nas configurações de assinaturas da App Store ou do Google Play. O cancelamento impede a próxima renovação e mantém o acesso até o fim do período já pago;</li>
+        <li>Os <strong>pedidos de reembolso</strong> seguem a política da respectiva loja e devem ser solicitados a ela, sem prejuízo dos direitos assegurados pelo Código de Defesa do Consumidor;</li>
+        <li>A loja de aplicativos não é parte destes Termos, mas poderá figurar como terceira beneficiária, com o direito de fazer cumprir as condições aplicáveis à distribuição e ao uso do aplicativo.</li>
       </ul>
 
       <!-- 9 -->
@@ -205,7 +216,7 @@ export const TERMS_HTML = `<!-- ─── NAVBAR ──────────�
       <!-- 11 -->
       <h2 id="rescisao">11. Rescisão e Exclusão de Conta</h2>
       <p>
-        Você pode encerrar sua conta a qualquer momento entrando em contato pelo e-mail <a href="mailto:contato@valedasmemorias.com.br">contato@valedasmemorias.com.br</a>. Após a exclusão:
+        Você pode excluir sua conta a qualquer momento diretamente no aplicativo, em <strong>Configurações &rarr; Excluir minha conta</strong>, ou entrando em contato pelo e-mail <a href="mailto:contato@valedasmemorias.com.br">contato@valedasmemorias.com.br</a>. Se você mantém uma assinatura ativa adquirida por uma loja de aplicativos, lembre-se de cancelá-la também na App Store ou no Google Play, pois a exclusão da conta não cancela automaticamente a cobrança da loja. Após a exclusão:
       </p>
       <ul>
         <li>O acesso à Plataforma é imediatamente revogado;</li>
