@@ -1,5 +1,4 @@
 /* GERADO de /Users/jhow/Works/valedasmemorias/site pelo script de migração — não editar à mão (regenerar). */
-/* eslint-disable */
 export const HOME_HTML = `<!-- ─── NAVBAR ─────────────────────────────────────────────────────────── -->
   <header class="fixed top-0 inset-x-0 z-50 transition-all duration-300" id="navbar">
     <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">

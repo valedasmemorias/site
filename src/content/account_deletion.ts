@@ -1,5 +1,4 @@
 /* GERADO de /Users/jhow/Works/valedasmemorias/site pelo script de migração — não editar à mão (regenerar). */
-/* eslint-disable */
 export const ACCOUNT_DELETION_HTML = `<!-- ─── NAVBAR ─────────────────────────────────────────────────────────── -->
   <nav class="sticky top-0 z-50 bg-cream/90 backdrop-blur-sm border-b border-sage-100/60">
     <div class="max-w-4xl mx-auto px-6 h-14 flex items-center justify-between">

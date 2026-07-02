@@ -1,5 +1,4 @@
 /* GERADO de /Users/jhow/Works/valedasmemorias/site pelo script de migração — não editar à mão (regenerar). */
-/* eslint-disable */
 export const PLANS_SECTION_HTML = `
     <!-- ─── PLANOS (comparativo de recursos, sem preços) ───────────────── -->
     <section id="planos" class="py-24 bg-white">

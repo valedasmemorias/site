@@ -22,7 +22,6 @@ export default function GetStartedPage() {
       >
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <a href="/" className="flex items-center gap-2.5 group">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/logo.png"
               alt="Vale das Memórias"
@@ -173,7 +172,6 @@ export default function GetStartedPage() {
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-10">
             <div>
               <div className="flex items-center gap-2.5 mb-3">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/logo.png"
                   alt="Vale das Memórias"

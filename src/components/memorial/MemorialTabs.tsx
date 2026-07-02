@@ -153,7 +153,6 @@ function TributesPanel({ tributes }: { tributes: MemorialTribute[] }) {
         >
           <header className="flex items-center gap-3">
             {tribute.authorAvatarUrl ? (
-              // eslint-disable-next-line @next/next/no-img-element
               <img
                 src={tribute.authorAvatarUrl}
                 alt={tribute.authorName}
@@ -175,7 +174,6 @@ function TributesPanel({ tributes }: { tributes: MemorialTribute[] }) {
           )}
 
           {tribute.type === 'photo' && tribute.mediaUrl && (
-            // eslint-disable-next-line @next/next/no-img-element
             <img
               src={tribute.mediaUrl}
               alt={`Foto enviada por ${tribute.authorName}`}
@@ -185,7 +183,6 @@ function TributesPanel({ tributes }: { tributes: MemorialTribute[] }) {
 
           {tribute.type === 'video' && tribute.mediaUrl && (
             <div className="relative mt-3 overflow-hidden rounded-lg">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={tribute.mediaUrl}
                 alt={`Vídeo enviado por ${tribute.authorName}`}
