@@ -73,7 +73,7 @@ export const ACCOUNT_DELETION_HTML = `<!-- ─── NAVBAR ──────�
   <!-- ─── FOOTER ─────────────────────────────────────────────────────────── -->
   <footer class="bg-sage-800 text-white py-10 mt-8">
     <div class="max-w-4xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/40">
-      <span>© 2025 Vale das Memórias · CNPJ 15.722.049/0001-25</span>
+      <span>© 2025 Vale das Memórias - CNPJ 15.722.049/0001-25</span>
       <nav class="flex gap-5">
         <a href="/privacy" class="hover:text-white transition-colors text-white/70 font-medium">Privacidade</a>
         <a href="/terms" class="hover:text-white transition-colors">Termos de Uso</a>
