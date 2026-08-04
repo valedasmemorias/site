@@ -19,7 +19,9 @@ export default [
     rules: {
       '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
       '@typescript-eslint/no-explicit-any': 'warn',
-      'no-console': 'warn',
+      // Espelha a shared: `console.error`/`warn` são a saída de servidor do
+      // Next; `console.log` continua avisando.
+      'no-console': ['warn', { allow: ['error', 'warn'] }],
     },
   },
 ];
