@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Fraunces, Inter } from 'next/font/google';
+import { Inter, Lora } from 'next/font/google';
 import './globals.css';
 
 const inter = Inter({
@@ -8,7 +8,9 @@ const inter = Inter({
   display: 'swap',
 });
 
-const fraunces = Fraunces({
+// Lora é a serifada do app (apps/mobile/src/theme/colors.ts → fonts.serif).
+// Manter as duas iguais para o site e o produto parecerem a mesma marca.
+const lora = Lora({
   subsets: ['latin'],
   variable: '--font-serif',
   display: 'swap',
@@ -48,7 +50,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" className={`${inter.variable} ${fraunces.variable}`}>
+    <html lang="pt-BR" className={`${inter.variable} ${lora.variable}`}>
       <body>{children}</body>
     </html>
   );

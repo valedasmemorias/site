@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { SiteScripts } from '@/components/site/SiteScripts';
 import { PLANS_SECTION_HTML } from '@/content/plans';
+import { ANDROID_URL, IOS_URL } from '@/lib/store-links';
 
 export const metadata: Metadata = {
   title: 'Baixe o app — Vale das Memórias',
@@ -8,9 +9,39 @@ export const metadata: Metadata = {
     'Baixe o Vale das Memórias no seu celular e comece a preservar as histórias que importam. Disponível para iPhone (App Store) e Android (Google Play).',
 };
 
-// Preencher com os links reais das lojas quando publicado.
-const IOS_URL = process.env.NEXT_PUBLIC_IOS_APP_URL ?? '#';
-const ANDROID_URL = process.env.NEXT_PUBLIC_ANDROID_APP_URL ?? '#';
+/**
+ * Recursos do app. `plan` marca o que é pago — espelha as features de
+ * `packages/plans/src/catalog.ts`; sem isso a grade sugere que tudo é gratuito.
+ */
+const APP_FEATURES: { t: string; d: string; plan?: string }[] = [
+  {
+    t: 'IA que sabe ouvir',
+    d: 'Perguntas suaves e naturais que despertam memórias que você achava que tinha esquecido.',
+  },
+  {
+    t: 'Minhas memórias',
+    d: 'Suas histórias organizadas, sempre à mão, prontas para revisitar quando quiser.',
+  },
+  {
+    t: 'Memorial',
+    d: 'Uma página que reúne as memórias de uma pessoa, para compartilhar com quem ela escolher.',
+  },
+  {
+    t: 'Cápsula do tempo',
+    d: 'Mensagens e memórias guardadas para serem reveladas em momentos importantes do futuro.',
+    plan: 'A partir do plano Raízes',
+  },
+  {
+    t: 'Capítulos da vida',
+    d: 'Uma linha do tempo dos momentos que marcaram, contada do seu jeito.',
+    plan: 'Plano Legado',
+  },
+  {
+    t: 'Entrada por áudio',
+    d: 'A voz de quem conta a história, preservada e transcrita — para nunca se perder.',
+    plan: 'Plano Legado',
+  },
+];
 
 export default function GetStartedPage() {
   return (
@@ -37,6 +68,9 @@ export default function GetStartedPage() {
             </a>
             <a href="#planos" className="hover:text-sage-600 transition-colors">
               Planos
+            </a>
+            <a href="/memorial/demo" className="hover:text-sage-600 transition-colors">
+              Ver um memorial
             </a>
             <a href="/partners" className="hover:text-sage-600 transition-colors">
               Para parceiros
@@ -123,32 +157,7 @@ export default function GetStartedPage() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {[
-                {
-                  t: 'IA que sabe ouvir',
-                  d: 'Perguntas suaves e naturais que despertam memórias que você achava que tinha esquecido.',
-                },
-                {
-                  t: 'Minhas memórias',
-                  d: 'Suas histórias organizadas, sempre à mão, prontas para revisitar quando quiser.',
-                },
-                {
-                  t: 'Capítulos da vida',
-                  d: 'Uma linha do tempo dos momentos que marcaram, contada do seu jeito.',
-                },
-                {
-                  t: 'Cápsula do tempo',
-                  d: 'Mensagens e memórias guardadas para serem reveladas em momentos importantes do futuro.',
-                },
-                {
-                  t: 'Entrada por áudio',
-                  d: 'A voz de quem conta a história, preservada e transcrita — para nunca se perder.',
-                },
-                {
-                  t: 'Seguro e privado',
-                  d: 'Suas memórias são protegidas e acessadas apenas por quem você autorizar.',
-                },
-              ].map((f, i) => (
+              {APP_FEATURES.map((f, i) => (
                 <div
                   key={f.t}
                   className="reveal card-hover bg-cream rounded-2xl p-7 border border-border-soft shadow-sm"
@@ -156,6 +165,9 @@ export default function GetStartedPage() {
                 >
                   <h3 className="font-semibold text-ink mb-2">{f.t}</h3>
                   <p className="text-sm text-slate-500 leading-relaxed">{f.d}</p>
+                  {f.plan && (
+                    <p className="text-xs font-medium text-sage-600 mt-3">{f.plan}</p>
+                  )}
                 </div>
               ))}
             </div>

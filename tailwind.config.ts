@@ -21,7 +21,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: ['var(--font-inter)', ...defaultTheme.fontFamily.sans],
-        serif: ['var(--font-serif)', 'Georgia', 'serif'],
+        serif: ['var(--font-serif)', 'Lora', 'Georgia', 'serif'],
       },
       colors: {
         background: 'hsl(var(--background))',

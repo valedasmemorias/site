@@ -1,9 +1,16 @@
-/* GERADO de /Users/jhow/Works/valedasmemorias/site pelo script de migração — não editar à mão (regenerar). */
+/**
+ * Markup da home. Originalmente migrado do site estático (que já não existe como
+ * fonte); hoje ESTE arquivo é a fonte de verdade — pode editar à mão.
+ *
+ * A seção de planos NÃO fica aqui: o marcador `<!--PLANS-->` é substituído por
+ * `PLANS_SECTION_HTML` em src/app/page.tsx, para não duplicar a tabela que
+ * /get-started também usa.
+ */
 export const HOME_HTML = `<!-- ─── NAVBAR ─────────────────────────────────────────────────────────── -->
   <header class="fixed top-0 inset-x-0 z-50 transition-all duration-300" id="navbar">
     <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
       <!-- Logo -->
-      <a href="#" class="flex items-center gap-2.5 group">
+      <a href="/" class="flex items-center gap-2.5 group">
         <img src="/logo.png" alt="Vale das Memórias" class="h-9 w-9 object-contain group-hover:scale-105 transition-transform" />
         <span class="font-semibold text-slate-900 tracking-tight">Vale das Memórias</span>
       </a>
@@ -12,11 +19,11 @@ export const HOME_HTML = `<!-- ─── NAVBAR ──────────�
         <a href="#como-funciona" class="hover:text-sage-600 transition-colors">Como funciona</a>
         <a href="#funcionalidades" class="hover:text-sage-600 transition-colors">Funcionalidades</a>
         <a href="#planos" class="hover:text-sage-600 transition-colors">Planos</a>
-        <a href="/get-started" class="hover:text-sage-600 transition-colors">Para você</a>
+        <a href="/memorial/demo" class="hover:text-sage-600 transition-colors">Ver um memorial</a>
         <a href="/partners" class="hover:text-sage-600 transition-colors">Para parceiros</a>
       </nav>
       <a href="/get-started" class="hidden md:inline-flex items-center gap-1.5 bg-sage-500 text-white text-sm font-semibold font-sans px-4 py-2 rounded-lg hover:bg-sage-600 transition-colors shadow-sm">
-        Começar agora
+        Baixar o app
         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
       </a>
     </div>
@@ -38,7 +45,7 @@ export const HOME_HTML = `<!-- ─── NAVBAR ──────────�
         <div>
           <div class="inline-flex items-center gap-2 bg-sage-100 text-sage-600 text-xs font-semibold px-3.5 py-1.5 rounded-full mb-7 animate-fade-up">
             <span class="w-1.5 h-1.5 rounded-full bg-sage-500 animate-pulse"></span>
-            Lista de espera aberta
+            Disponível para iPhone e Android
           </div>
 
           <h1 class="text-5xl md:text-6xl font-bold text-slate-900 leading-[1.08] tracking-tight mb-6 animate-fade-up delay-100">
@@ -51,95 +58,114 @@ export const HOME_HTML = `<!-- ─── NAVBAR ──────────�
             Um lugar onde as memórias da sua vida encontram palavras. Converse com nossa IA, reviva momentos, e deixe um legado que as pessoas que você ama nunca vão esquecer.
           </p>
 
-          <!-- Waitlist form -->
-          <form id="hero-form" class="animate-fade-up delay-300" data-subscribe>
-            <div class="flex flex-col sm:flex-row gap-3 max-w-md">
-              <input
-                type="email"
-                required
-                placeholder="Seu melhor e-mail"
-                class="flex-1 px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sage-400 focus:border-transparent transition-all text-sm shadow-sm"
-              />
-              <button type="submit" class="bg-sage-500 text-white font-semibold px-6 py-3 rounded-xl hover:bg-sage-600 active:scale-95 transition-all text-sm shadow-md shadow-sage-500/20 whitespace-nowrap">
-                Entrar na lista
-              </button>
+          <!-- Download -->
+          <div class="animate-fade-up delay-300">
+            <div class="flex flex-col sm:flex-row gap-3 max-w-md" data-store-buttons>
+              <a href="{{IOS_URL}}" class="inline-flex items-center justify-center gap-2.5 bg-ink text-white font-semibold px-6 py-3 rounded-xl hover:opacity-90 active:scale-95 transition-all text-sm shadow-md">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M16.365 1.43c0 1.14-.42 2.2-1.12 3-.78.9-2.06 1.6-3.12 1.52-.13-1.1.4-2.27 1.06-3 .76-.84 2.1-1.46 3.18-1.52zM20.5 17.2c-.55 1.28-.82 1.85-1.53 2.98-1 1.58-2.4 3.54-4.13 3.55-1.54.02-1.94-1.01-4.03-1-2.09.01-2.53 1.02-4.07 1-1.73-.01-3.06-1.78-4.05-3.36C-.4 17.36-.7 12.06 1.4 9.27c1.05-1.42 2.7-2.32 4.26-2.32 1.6 0 2.6 1.04 3.92 1.04 1.28 0 2.06-1.04 3.91-1.04 1.4 0 2.88.76 3.94 2.08-3.46 1.9-2.9 6.84.67 8.17z"/></svg>
+                App Store
+              </a>
+              <a href="{{ANDROID_URL}}" class="inline-flex items-center justify-center gap-2.5 bg-ink text-white font-semibold px-6 py-3 rounded-xl hover:opacity-90 active:scale-95 transition-all text-sm shadow-md">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 1.3l11.05 11.05L3.6 23.4a1.7 1.7 0 01-.6-1.3V2.6c0-.5.23-.97.6-1.3zM16.8 9.4l2.6 1.5c1 .58 1 2.04 0 2.62l-2.6 1.5-2.9-2.81 2.9-2.81zM5.2.6l9.5 5.47-2.6 2.5L5.2.6zm0 22.8l6.9-7.97 2.6 2.5L5.2 23.4z"/></svg>
+                Google Play
+              </a>
             </div>
             <p class="text-xs text-slate-400 mt-3">Gratuito para começar. Sem cartão de crédito.</p>
-          </form>
+          </div>
         </div>
 
         <!-- Visual: Abstract memory cards -->
-        <div class="relative hidden lg:flex items-center justify-center h-[480px]">
+        <div class="relative hidden lg:flex items-center justify-center h-[560px]">
           <!-- Background blur card -->
           <div class="absolute inset-8 bg-gradient-to-br from-sage-100 to-warm-100 rounded-3xl opacity-60 blur-sm"></div>
 
           <!-- Memory card 1 -->
-          <div class="memory-card absolute top-10 left-6 w-64 bg-white rounded-2xl p-5 shadow-xl shadow-slate-200/80 border border-slate-100 z-20">
+          <div class="memory-card absolute top-0 -left-6 w-56 bg-white rounded-2xl p-5 shadow-xl shadow-slate-200/80 border border-slate-100 z-20">
             <div class="flex items-center gap-3 mb-3">
               <div class="w-9 h-9 rounded-full bg-gradient-to-br from-sage-400 to-sage-600 flex items-center justify-center text-white text-sm font-bold">A</div>
               <div>
                 <div class="text-xs font-semibold text-slate-800">Ana Ferreira</div>
-                <div class="text-[10px] text-slate-400">Contado em junho de 2024</div>
+                <div class="text-[10px] text-slate-400">Guardada há 3 dias</div>
               </div>
             </div>
             <p class="text-xs text-slate-600 leading-relaxed italic">
               "O verão em que meu pai me ensinou a pescar no rio. Eu tinha uns 8 anos e achava que ele sabia de tudo..."
             </p>
             <div class="mt-3 flex items-center gap-1.5">
-              <span class="text-[10px] bg-sage-50 text-sage-600 px-2 py-0.5 rounded-full font-medium">Infância</span>
-              <span class="text-[10px] bg-warm-100 text-warm-500 px-2 py-0.5 rounded-full font-medium">Família</span>
+              <span class="text-[10px] bg-cat-infancia-bg text-cat-infancia px-2 py-0.5 rounded-full font-medium">Infância</span>
+              <span class="text-[10px] bg-cat-familia-bg text-cat-familia px-2 py-0.5 rounded-full font-medium">Família</span>
             </div>
           </div>
 
           <!-- Memory card 2 -->
-          <div class="memory-card-2 absolute bottom-10 right-4 w-60 bg-white rounded-2xl p-5 shadow-xl shadow-slate-200/80 border border-slate-100 z-20">
+          <div class="memory-card-2 absolute bottom-0 -right-6 w-56 bg-white rounded-2xl p-5 shadow-xl shadow-slate-200/80 border border-slate-100 z-20">
             <div class="flex items-center gap-3 mb-3">
               <div class="w-9 h-9 rounded-full bg-gradient-to-br from-warm-400 to-warm-500 flex items-center justify-center text-white text-sm font-bold">M</div>
               <div>
                 <div class="text-xs font-semibold text-slate-800">Marcos Lima</div>
-                <div class="text-[10px] text-slate-400">Contado em março de 2024</div>
+                <div class="text-[10px] text-slate-400">Guardada há 1 semana</div>
               </div>
             </div>
             <p class="text-xs text-slate-600 leading-relaxed italic">
               "Minha avó fazia um bolo de laranja todo domingo. Só descobri a receita depois que ela foi embora..."
             </p>
             <div class="mt-3 flex gap-1.5">
-              <span class="text-[10px] bg-purple-50 text-purple-500 px-2 py-0.5 rounded-full font-medium">Legado</span>
+              <span class="text-[10px] bg-cat-familia-bg text-cat-familia px-2 py-0.5 rounded-full font-medium">Família</span>
             </div>
           </div>
 
-          <!-- Center card — conversation -->
-          <div class="relative z-30 w-72 bg-white rounded-2xl shadow-2xl shadow-slate-300/50 border border-slate-100 overflow-hidden">
-            <div class="bg-sage-500 px-4 py-3 flex items-center gap-3">
-              <div class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21C12 21 4 13.5 4 8.5C4 5.5 6.5 3 9.5 3C11 3 12 4 12 4C12 4 13 3 14.5 3C17.5 3 20 5.5 20 8.5C20 13.5 12 21 12 21Z"/></svg>
+          <!-- Center card — conversa (espelha apps/mobile: app/(tabs)/index.tsx + MessageBubble.tsx) -->
+          <div class="relative z-30 w-72 bg-bg rounded-2xl shadow-2xl shadow-slate-300/50 border border-border-soft overflow-hidden">
+            <!-- Header do chat -->
+            <div class="px-3.5 py-2.5 flex items-center gap-2.5 border-b border-border-soft">
+              <div class="w-8 h-8 rounded-xl bg-sage-100 border border-border-soft flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-sage-500" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 3l1.9 5.6a2 2 0 0 0 1.5 1.5L21 12l-5.6 1.9a2 2 0 0 0-1.5 1.5L12 21l-1.9-5.6a2 2 0 0 0-1.5-1.5L3 12l5.6-1.9a2 2 0 0 0 1.5-1.5z"/><path d="M20 3v4M22 5h-4M4 17v2M5 18H3"/></svg>
               </div>
-              <div>
-                <div class="text-white text-xs font-semibold">Vale das Memórias</div>
-                <div class="text-white/60 text-[10px]">Assistente de histórias</div>
+              <div class="min-w-0">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-sage-500"></span>
+                  <span class="text-[8px] font-semibold uppercase tracking-[0.09em] text-sage-500">Conversando</span>
+                </div>
+                <div class="font-serif text-[12px] text-ink truncate">Sua história, contada do seu jeito</div>
               </div>
             </div>
-            <div class="p-4 space-y-3 bg-slate-50 min-h-[180px]">
-              <div class="flex gap-2">
-                <div class="w-6 h-6 bg-sage-500 rounded-full flex-shrink-0 flex items-center justify-center">
-                  <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21C12 21 4 13.5 4 8.5C4 5.5 6.5 3 9.5 3C11 3 12 4 12 4C12 4 13 3 14.5 3C17.5 3 20 5.5 20 8.5C20 13.5 12 21 12 21Z"/></svg>
+
+            <!-- Mensagens -->
+            <div class="px-3.5 py-3.5 space-y-2.5 min-h-[150px]">
+              <div class="flex items-end gap-2">
+                <div class="w-6 h-6 rounded-[9px] bg-sage-100 border border-border-soft flex-shrink-0 flex items-center justify-center">
+                  <svg class="w-3 h-3 text-sage-500" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 3l1.9 5.6a2 2 0 0 0 1.5 1.5L21 12l-5.6 1.9a2 2 0 0 0-1.5 1.5L12 21l-1.9-5.6a2 2 0 0 0-1.5-1.5L3 12l5.6-1.9a2 2 0 0 0 1.5-1.5z"/></svg>
                 </div>
-                <div class="bg-white rounded-lg rounded-tl-sm px-3 py-2 text-[11px] text-slate-700 shadow-sm max-w-[85%] leading-relaxed">
-                  Que memória da sua infância você nunca quer esquecer? 🌿
+                <div class="bg-white border border-[#E1EBE5] rounded-[15px] rounded-bl-[4px] px-3 py-2 text-[11px] text-ink max-w-[78%] leading-relaxed">
+                  Que memória da sua infância você nunca quer esquecer?
                 </div>
               </div>
               <div class="flex justify-end">
-                <div class="bg-sage-500 rounded-lg rounded-tr-sm px-3 py-2 text-[11px] text-white max-w-[85%] leading-relaxed">
-                  A casa da minha avó no interior. O cheiro do café pela manhã...
+                <div class="bg-sage-500 rounded-[15px] rounded-br-[4px] px-3 py-2 text-[11px] text-white max-w-[78%] leading-relaxed">
+                  A casa da minha avó no interior. O cheiro do café pela manhã.
                 </div>
               </div>
-              <div class="flex gap-2">
-                <div class="w-6 h-6 bg-sage-500 rounded-full flex-shrink-0 flex items-center justify-center">
-                  <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21C12 21 4 13.5 4 8.5C4 5.5 6.5 3 9.5 3C11 3 12 4 12 4C12 4 13 3 14.5 3C17.5 3 20 5.5 20 8.5C20 13.5 12 21 12 21Z"/></svg>
+              <div class="flex items-end gap-2">
+                <div class="w-6 h-6 rounded-[9px] bg-sage-100 border border-border-soft flex-shrink-0 flex items-center justify-center">
+                  <svg class="w-3 h-3 text-sage-500" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 3l1.9 5.6a2 2 0 0 0 1.5 1.5L21 12l-5.6 1.9a2 2 0 0 0-1.5 1.5L12 21l-1.9-5.6a2 2 0 0 0-1.5-1.5L3 12l5.6-1.9a2 2 0 0 0 1.5-1.5z"/></svg>
                 </div>
-                <div class="bg-white rounded-lg rounded-tl-sm px-3 py-2 text-[11px] text-slate-700 shadow-sm max-w-[85%] leading-relaxed">
-                  Que lindo. Me conta mais sobre ela — como era sua avó? ✨
+                <div class="bg-white border border-[#E1EBE5] rounded-[15px] rounded-bl-[4px] px-3 py-2 text-[11px] text-ink max-w-[78%] leading-relaxed">
+                  Que lindo. Me conta mais sobre ela — como era sua avó?
                 </div>
+              </div>
+            </div>
+
+            <!-- Composer -->
+            <div class="px-3 pb-2.5 pt-2 border-t border-border-soft">
+              <div class="flex items-center gap-2 bg-white border border-[#E1EBE5] rounded-[14px] px-2.5 py-1.5">
+                <span class="flex-1 text-[10px] text-ink-muted truncate">Escreva uma mensagem…</span>
+                <span class="w-6 h-6 rounded-[9px] bg-sage-500 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                </span>
+              </div>
+              <div class="flex items-center justify-center gap-1 mt-1.5">
+                <svg class="w-2.5 h-2.5 text-ink-muted" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 3l1.9 5.6a2 2 0 0 0 1.5 1.5L21 12l-5.6 1.9a2 2 0 0 0-1.5 1.5L12 21l-1.9-5.6a2 2 0 0 0-1.5-1.5L3 12l5.6-1.9a2 2 0 0 0 1.5-1.5z"/></svg>
+                <span class="text-[9px] text-ink-muted">A IA pode capturar memórias da conversa</span>
               </div>
             </div>
           </div>
@@ -152,70 +178,46 @@ export const HOME_HTML = `<!-- ─── NAVBAR ──────────�
       </div>
     </section>
 
-    <!-- ─── SOCIAL PROOF ─────────────────────────────────────────────────── -->
-    <section class="py-16 border-y border-slate-100 bg-white">
+    <!-- ─── VER UM MEMORIAL ──────────────────────────────────────────────── -->
+    <section class="py-16 border-y border-border-soft bg-white">
       <div class="max-w-5xl mx-auto px-6">
-        <p class="text-center text-xs font-semibold text-slate-400 uppercase tracking-widest mb-10">O que as pessoas estão dizendo</p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <!-- Testimonial 1 -->
-          <div class="reveal card-hover bg-cream rounded-2xl p-6 border border-slate-100">
-            <div class="flex gap-1 mb-3">
-              <svg class="w-4 h-4 text-warm-400 fill-warm-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg class="w-4 h-4 text-warm-400 fill-warm-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg class="w-4 h-4 text-warm-400 fill-warm-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg class="w-4 h-4 text-warm-400 fill-warm-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg class="w-4 h-4 text-warm-400 fill-warm-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <div class="reveal grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <div>
+            <div class="inline-flex items-center gap-2 bg-sage-50 text-sage-600 text-xs font-semibold px-4 py-2 rounded-full mb-5">
+              Veja com seus olhos
             </div>
-            <p class="text-sm text-slate-600 leading-relaxed mb-4 italic">
-              "Minha mãe tem 74 anos. Passamos horas conversando sobre a vida dela. Agora temos um arquivo de memórias que meus filhos vão poder ler um dia."
+            <h2 class="text-3xl md:text-4xl font-semibold text-ink tracking-tight leading-tight mb-4">
+              É assim que uma história<br>fica guardada
+            </h2>
+            <p class="text-slate-500 leading-relaxed mb-7 max-w-md">
+              Todo plano inclui um memorial — uma página que reúne as memórias de uma pessoa e pode ser compartilhada com quem ela escolher. Preparamos dois exemplos para você percorrer antes de baixar o app.
             </p>
-            <div class="flex items-center gap-3">
-              <div class="w-9 h-9 rounded-full bg-gradient-to-br from-sage-400 to-sage-600 flex items-center justify-center text-white text-sm font-bold">C</div>
-              <div>
-                <div class="text-sm font-semibold text-slate-800">Carla Mendes</div>
-                <div class="text-xs text-slate-400">São Paulo, SP</div>
-              </div>
+            <div class="flex flex-col sm:flex-row gap-3">
+              <a href="/memorial/demo" class="inline-flex items-center justify-center gap-1.5 bg-sage-500 text-white font-semibold px-5 py-3 rounded-xl hover:bg-sage-600 transition-colors text-sm shadow-sm">
+                Ver memorial de exemplo
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+              </a>
+              <a href="/memorial/demo/em-vida" class="inline-flex items-center justify-center gap-1.5 bg-white text-ink font-semibold px-5 py-3 rounded-xl border border-border-soft hover:bg-cream transition-colors text-sm">
+                Ver memorial em vida
+              </a>
             </div>
           </div>
 
-          <!-- Testimonial 2 -->
-          <div class="reveal card-hover bg-cream rounded-2xl p-6 border border-slate-100" style="transition-delay: 120ms">
-            <div class="flex gap-1 mb-3">
-              <svg class="w-4 h-4 text-warm-400 fill-warm-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg class="w-4 h-4 text-warm-400 fill-warm-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg class="w-4 h-4 text-warm-400 fill-warm-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg class="w-4 h-4 text-warm-400 fill-warm-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg class="w-4 h-4 text-warm-400 fill-warm-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <p class="text-sm text-slate-600 leading-relaxed mb-4 italic">
-              "Nunca soube muita coisa sobre meu avô. Quando encontrei a história que ele gravou antes de ir embora, chorei muito. Isso não tem preço."
-            </p>
-            <div class="flex items-center gap-3">
-              <div class="w-9 h-9 rounded-full bg-gradient-to-br from-warm-400 to-warm-500 flex items-center justify-center text-white text-sm font-bold">R</div>
-              <div>
-                <div class="text-sm font-semibold text-slate-800">Rafael Costa</div>
-                <div class="text-xs text-slate-400">Belo Horizonte, MG</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Testimonial 3 -->
-          <div class="reveal card-hover bg-cream rounded-2xl p-6 border border-slate-100" style="transition-delay: 240ms">
-            <div class="flex gap-1 mb-3">
-              <svg class="w-4 h-4 text-warm-400 fill-warm-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg class="w-4 h-4 text-warm-400 fill-warm-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg class="w-4 h-4 text-warm-400 fill-warm-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg class="w-4 h-4 text-warm-400 fill-warm-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg class="w-4 h-4 text-warm-400 fill-warm-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <p class="text-sm text-slate-600 leading-relaxed mb-4 italic">
-              "Comecei a usar pra registrar minhas próprias memórias. A IA faz perguntas tão boas que me lembrei de coisas que eu nem sabia que ainda estavam na minha cabeça."
-            </p>
-            <div class="flex items-center gap-3">
-              <div class="w-9 h-9 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center text-white text-sm font-bold">L</div>
-              <div>
-                <div class="text-sm font-semibold text-slate-800">Lúcia Andrade</div>
-                <div class="text-xs text-slate-400">Porto Alegre, RS</div>
+          <!-- Prévia do memorial -->
+          <div class="bg-gradient-to-br from-sage-50 to-warm-100 rounded-3xl p-6 border border-sage-100">
+            <div class="bg-white rounded-2xl shadow-sm border border-border-soft overflow-hidden">
+              <div class="h-20 bg-gradient-to-br from-sage-400 to-sage-600"></div>
+              <div class="px-5 pb-5">
+                <div class="w-14 h-14 rounded-2xl bg-white border border-border-soft -mt-7 mb-3 flex items-center justify-center shadow-sm">
+                  <svg class="w-6 h-6 text-sage-500" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                </div>
+                <div class="font-serif text-lg text-ink mb-1">Um lugar para as histórias</div>
+                <p class="text-xs text-slate-500 leading-relaxed mb-4">Memórias reunidas, organizadas por capítulos da vida e compartilhadas com quem importa.</p>
+                <div class="space-y-2">
+                  <div class="h-2.5 bg-cream rounded-full w-full"></div>
+                  <div class="h-2.5 bg-cream rounded-full w-5/6"></div>
+                  <div class="h-2.5 bg-cream rounded-full w-2/3"></div>
+                </div>
               </div>
             </div>
           </div>
@@ -311,7 +313,7 @@ export const HOME_HTML = `<!-- ─── NAVBAR ──────────�
               </div>
               <div>
                 <h3 class="font-semibold text-slate-800 mb-1">Guardada com cuidado, para sempre</h3>
-                <p class="text-sm text-slate-500 leading-relaxed">Cada memória é organizada, preservada e disponível para você e para quem você autorizar. Seus netos podem ler, ouvir e se sentir perto de você — mesmo décadas depois.</p>
+                <p class="text-sm text-slate-500 leading-relaxed">Cada memória é organizada, preservada e disponível para você e para quem você autorizar. Seus netos podem ler suas histórias e se sentir perto de você — mesmo décadas depois.</p>
               </div>
             </div>
 
@@ -397,7 +399,7 @@ export const HOME_HTML = `<!-- ─── NAVBAR ──────────�
           <!-- Feature 1 -->
           <div class="reveal card-hover bg-white rounded-2xl p-7 border border-slate-100 shadow-sm">
             <div class="w-12 h-12 bg-sage-50 border border-sage-100 rounded-xl flex items-center justify-center mb-5">
-              <svg class="w-6 h-6 text-sage-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              <svg class="w-6 h-6 text-sage-600" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
             </div>
             <h3 class="font-semibold text-slate-800 mb-2">IA que sabe ouvir</h3>
             <p class="text-sm text-slate-500 leading-relaxed">Conversas guiadas por inteligência artificial, com perguntas que fluem naturalmente e se adaptam ao que você compartilha.</p>
@@ -415,10 +417,10 @@ export const HOME_HTML = `<!-- ─── NAVBAR ──────────�
           <!-- Feature 3 -->
           <div class="reveal card-hover bg-white rounded-2xl p-7 border border-slate-100 shadow-sm" style="transition-delay: 160ms">
             <div class="w-12 h-12 bg-sage-50 border border-sage-100 rounded-xl flex items-center justify-center mb-5">
-              <svg class="w-6 h-6 text-sage-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              <svg class="w-6 h-6 text-sage-600" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="11" rx="3"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3M8 22h8"/></svg>
             </div>
-            <h3 class="font-semibold text-slate-800 mb-2">Voz, texto e fotos</h3>
-            <p class="text-sm text-slate-500 leading-relaxed">Conte suas histórias do jeito que preferir — em texto, áudio ou com fotos. Tudo é transcrito e organizado automaticamente.</p>
+            <h3 class="font-semibold text-slate-800 mb-2">Por texto ou por voz</h3>
+            <p class="text-sm text-slate-500 leading-relaxed">Escreva como quem manda uma mensagem — ou grave um áudio e deixe que a gente transcreve e organiza. <span class="text-sage-600 font-medium">Áudio no plano Legado.</span></p>
           </div>
 
           <!-- Feature 4 -->
@@ -426,17 +428,17 @@ export const HOME_HTML = `<!-- ─── NAVBAR ──────────�
             <div class="w-12 h-12 bg-sage-50 border border-sage-100 rounded-xl flex items-center justify-center mb-5">
               <svg class="w-6 h-6 text-sage-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
             </div>
-            <h3 class="font-semibold text-slate-800 mb-2">Compartilhe com a família</h3>
-            <p class="text-sm text-slate-500 leading-relaxed">Convide parentes para acessar as memórias. Eles podem ler, ouvir e até adicionar as deles — criando um acervo vivo da família.</p>
+            <h3 class="font-semibold text-slate-800 mb-2">Conexões com a família</h3>
+            <p class="text-sm text-slate-500 leading-relaxed">Convide filhos, netos e irmãos para se conectarem à sua história. Cada um mantém as próprias memórias, e o memorial reúne o que você escolher compartilhar.</p>
           </div>
 
           <!-- Feature 5 -->
           <div class="reveal card-hover bg-white rounded-2xl p-7 border border-slate-100 shadow-sm" style="transition-delay: 320ms">
             <div class="w-12 h-12 bg-sage-50 border border-sage-100 rounded-xl flex items-center justify-center mb-5">
-              <svg class="w-6 h-6 text-sage-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+              <svg class="w-6 h-6 text-sage-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M12 7v5l3.5 2"/></svg>
             </div>
-            <h3 class="font-semibold text-slate-800 mb-2">Livro de memórias</h3>
-            <p class="text-sm text-slate-500 leading-relaxed">Transforme suas histórias em um livro impresso, lindo e encadernado — um presente que dura gerações.</p>
+            <h3 class="font-semibold text-slate-800 mb-2">Cápsula do tempo</h3>
+            <p class="text-sm text-slate-500 leading-relaxed">Escreva hoje uma mensagem para ser aberta lá na frente — num aniversário, numa formatura, num dia que ainda vai chegar. <span class="text-sage-600 font-medium">A partir do plano Raízes.</span></p>
           </div>
 
           <!-- Feature 6 -->
@@ -476,8 +478,8 @@ export const HOME_HTML = `<!-- ─── NAVBAR ──────────�
               </div>
               <div class="absolute -top-2 -right-2 w-7 h-7 bg-sage-500 text-white text-xs font-bold rounded-full flex items-center justify-center shadow-sm">1</div>
             </div>
-            <h3 class="font-semibold text-slate-800 mb-2">Crie sua conta</h3>
-            <p class="text-sm text-slate-500 leading-relaxed">Em menos de um minuto, você entra. Nada complicado — só seu nome e e-mail.</p>
+            <h3 class="font-semibold text-slate-800 mb-2">Baixe o app e entre</h3>
+            <p class="text-sm text-slate-500 leading-relaxed">Em menos de um minuto, você entra. Nada complicado — seu nome, e-mail e como prefere ser tratado. Sem senha: a gente manda um código.</p>
           </div>
 
           <!-- Step 2 -->
@@ -506,82 +508,10 @@ export const HOME_HTML = `<!-- ─── NAVBAR ──────────�
         </div>
       </div>
     </section>
-    <!-- ─── PLANOS (comparativo de recursos, sem preços) ───────────────── -->
-    <section id="planos" class="py-24 bg-white">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center mb-14">
-          <div class="reveal inline-flex items-center gap-2 bg-sage-50 text-sage-600 text-xs font-semibold px-4 py-2 rounded-full mb-6">Planos</div>
-          <h2 class="reveal text-3xl md:text-5xl font-semibold text-ink tracking-tight leading-tight mb-4" style="transition-delay:100ms">
-            Comece grátis,<br>evolua quando quiser
-          </h2>
-          <p class="reveal text-lg text-slate-500 max-w-xl mx-auto leading-relaxed" style="transition-delay:200ms">
-            Você começa no plano Gratuito. A assinatura dos planos pagos é feita dentro do aplicativo (App Store e Google Play).
-          </p>
-        </div>
-        <div class="reveal grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" style="transition-delay:300ms">
-          <div class="rounded-2xl border border-border-soft bg-cream p-7 flex flex-col">
-            
-            <h3 class="text-2xl font-semibold text-ink mb-1">Gratuito</h3>
-            <p class="text-sm text-slate-500 mb-5">Para começar a guardar suas primeiras histórias.</p>
-            <ul class="space-y-3 text-sm flex-1">
-              <li class="flex items-center gap-2 text-ink"><span class="text-sage-600">✓</span> Até 10 memórias guardadas</li>
-              <li class="flex items-center gap-2 text-ink"><span class="text-sage-600">✓</span> Memorial público</li>
-              <li class="flex items-center gap-2 text-slate-400"><span>✕</span> Cápsula do tempo</li>
-              <li class="flex items-center gap-2 text-slate-400"><span>✕</span> Capítulos da vida</li>
-              <li class="flex items-center gap-2 text-slate-400"><span>✕</span> Entrada por áudio</li>
-            </ul>
-            <a href="/get-started" class="mt-6 inline-flex justify-center bg-sage-500 text-white font-semibold px-5 py-3 rounded-xl hover:bg-sage-600 transition-colors text-sm">Baixar o app</a>
-          </div>
-
-          <div class="rounded-2xl border border-border-soft bg-cream p-7 flex flex-col">
-            
-            <h3 class="text-2xl font-semibold text-ink mb-1">Semente</h3>
-            <p class="text-sm text-slate-500 mb-5">Memórias sem limite para registrar tudo.</p>
-            <ul class="space-y-3 text-sm flex-1">
-              <li class="flex items-center gap-2 text-ink"><span class="text-sage-600">✓</span> Memórias ilimitadas</li>
-              <li class="flex items-center gap-2 text-ink"><span class="text-sage-600">✓</span> Memorial público</li>
-              <li class="flex items-center gap-2 text-slate-400"><span>✕</span> Cápsula do tempo</li>
-              <li class="flex items-center gap-2 text-slate-400"><span>✕</span> Capítulos da vida</li>
-              <li class="flex items-center gap-2 text-slate-400"><span>✕</span> Entrada por áudio</li>
-            </ul>
-            <a href="/get-started" class="mt-6 inline-flex justify-center bg-sage-500 text-white font-semibold px-5 py-3 rounded-xl hover:bg-sage-600 transition-colors text-sm">Baixar o app</a>
-          </div>
-
-          <div class="rounded-2xl border border-border-soft bg-cream p-7 flex flex-col">
-            
-            <h3 class="text-2xl font-semibold text-ink mb-1">Raízes</h3>
-            <p class="text-sm text-slate-500 mb-5">Inclui a Cápsula do tempo para o futuro.</p>
-            <ul class="space-y-3 text-sm flex-1">
-              <li class="flex items-center gap-2 text-ink"><span class="text-sage-600">✓</span> Memórias ilimitadas</li>
-              <li class="flex items-center gap-2 text-ink"><span class="text-sage-600">✓</span> Memorial público</li>
-              <li class="flex items-center gap-2 text-ink"><span class="text-sage-600">✓</span> Cápsula do tempo</li>
-              <li class="flex items-center gap-2 text-slate-400"><span>✕</span> Capítulos da vida</li>
-              <li class="flex items-center gap-2 text-slate-400"><span>✕</span> Entrada por áudio</li>
-            </ul>
-            <a href="/get-started" class="mt-6 inline-flex justify-center bg-sage-500 text-white font-semibold px-5 py-3 rounded-xl hover:bg-sage-600 transition-colors text-sm">Baixar o app</a>
-          </div>
-
-          <div class="rounded-2xl border-2 border-sage-300 bg-sage-50 p-7 flex flex-col relative">
-            <span class="absolute -top-3 left-7 bg-sage-500 text-white text-[11px] font-semibold px-3 py-1 rounded-full font-sans">Mais completo</span>
-            <h3 class="text-2xl font-semibold text-ink mb-1">Legado</h3>
-            <p class="text-sm text-slate-500 mb-5">A experiência completa, com todos os recursos.</p>
-            <ul class="space-y-3 text-sm flex-1">
-              <li class="flex items-center gap-2 text-ink"><span class="text-sage-600">✓</span> Memórias ilimitadas</li>
-              <li class="flex items-center gap-2 text-ink"><span class="text-sage-600">✓</span> Memorial público</li>
-              <li class="flex items-center gap-2 text-ink"><span class="text-sage-600">✓</span> Cápsula do tempo</li>
-              <li class="flex items-center gap-2 text-ink"><span class="text-sage-600">✓</span> Capítulos da vida</li>
-              <li class="flex items-center gap-2 text-ink"><span class="text-sage-600">✓</span> Entrada por áudio</li>
-            </ul>
-            <a href="/get-started" class="mt-6 inline-flex justify-center bg-sage-500 text-white font-semibold px-5 py-3 rounded-xl hover:bg-sage-600 transition-colors text-sm">Baixar o app</a>
-          </div>
-        </div>
-        <p class="text-center text-xs text-slate-400 mt-8">Recursos de cada plano. Você pode mudar de plano quando quiser, direto no app.</p>
-      </div>
-    </section>
-
+    <!--PLANS-->
 
     <!-- ─── CTA FINAL ────────────────────────────────────────────────────── -->
-    <section id="waitlist" class="py-24 bg-cream relative overflow-hidden">
+    <section id="baixar" class="py-24 bg-cream relative overflow-hidden">
       <div class="absolute inset-0 pointer-events-none" style="background-image: radial-gradient(circle, rgba(45,106,79,0.07) 1px, transparent 1px); background-size: 24px 24px;"></div>
       <div class="absolute top-0 right-0 w-80 h-80 bg-sage-100 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
       <div class="absolute bottom-0 left-0 w-64 h-64 bg-warm-200 rounded-full blur-3xl opacity-40 pointer-events-none"></div>
@@ -596,25 +526,24 @@ export const HOME_HTML = `<!-- ─── NAVBAR ──────────�
           <span class="gradient-text">se perderem</span>
         </h2>
         <p class="reveal text-lg text-slate-500 mb-10 max-w-lg mx-auto leading-relaxed" style="transition-delay: 200ms">
-          Junte-se a centenas de famílias que já estão preservando o que importa. Entre na lista de espera e seja um dos primeiros a usar o Vale das Memórias.
+          Baixe o aplicativo, crie sua conta no plano Gratuito e comece hoje a guardar as histórias que importam.
         </p>
 
-        <form id="cta-form" class="reveal" style="transition-delay: 300ms" data-subscribe>
-          <div class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-4">
-            <input
-              type="email"
-              required
-              placeholder="Seu melhor e-mail"
-              class="flex-1 px-4 py-3.5 rounded-xl border border-slate-200 bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sage-400 focus:border-transparent transition-all text-sm shadow-sm"
-            />
-            <button type="submit" class="bg-sage-500 text-white font-semibold px-7 py-3.5 rounded-xl hover:bg-sage-600 active:scale-95 transition-all text-sm shadow-lg shadow-sage-500/20 whitespace-nowrap">
-              Entrar na lista
-            </button>
+        <div class="reveal" style="transition-delay: 300ms">
+          <div class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-4 justify-center">
+            <a href="{{IOS_URL}}" class="inline-flex items-center justify-center gap-2.5 bg-ink text-white font-semibold px-7 py-3.5 rounded-xl hover:opacity-90 active:scale-95 transition-all text-sm shadow-lg">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M16.365 1.43c0 1.14-.42 2.2-1.12 3-.78.9-2.06 1.6-3.12 1.52-.13-1.1.4-2.27 1.06-3 .76-.84 2.1-1.46 3.18-1.52zM20.5 17.2c-.55 1.28-.82 1.85-1.53 2.98-1 1.58-2.4 3.54-4.13 3.55-1.54.02-1.94-1.01-4.03-1-2.09.01-2.53 1.02-4.07 1-1.73-.01-3.06-1.78-4.05-3.36C-.4 17.36-.7 12.06 1.4 9.27c1.05-1.42 2.7-2.32 4.26-2.32 1.6 0 2.6 1.04 3.92 1.04 1.28 0 2.06-1.04 3.91-1.04 1.4 0 2.88.76 3.94 2.08-3.46 1.9-2.9 6.84.67 8.17z"/></svg>
+              Baixar na App Store
+            </a>
+            <a href="{{ANDROID_URL}}" class="inline-flex items-center justify-center gap-2.5 bg-ink text-white font-semibold px-7 py-3.5 rounded-xl hover:opacity-90 active:scale-95 transition-all text-sm shadow-lg">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 1.3l11.05 11.05L3.6 23.4a1.7 1.7 0 01-.6-1.3V2.6c0-.5.23-.97.6-1.3zM16.8 9.4l2.6 1.5c1 .58 1 2.04 0 2.62l-2.6 1.5-2.9-2.81 2.9-2.81zM5.2.6l9.5 5.47-2.6 2.5L5.2.6zm0 22.8l6.9-7.97 2.6 2.5L5.2 23.4z"/></svg>
+              Disponível no Google Play
+            </a>
           </div>
           <p class="text-xs text-slate-400">
-            Gratuito para começar · Sem spam · Cancele quando quiser
+            Gratuito para começar · Sem cartão de crédito · Assinatura opcional dentro do app
           </p>
-        </form>
+        </div>
 
         <!-- Trust badges -->
         <div class="reveal flex flex-wrap items-center justify-center gap-6 mt-10 text-xs text-slate-400" style="transition-delay: 400ms">
@@ -659,7 +588,8 @@ export const HOME_HTML = `<!-- ─── NAVBAR ──────────�
               <li><a href="#como-funciona" class="text-white/50 hover:text-white transition-colors">Como funciona</a></li>
               <li><a href="#funcionalidades" class="text-white/50 hover:text-white transition-colors">Funcionalidades</a></li>
               <li><a href="#planos" class="text-white/50 hover:text-white transition-colors">Planos</a></li>
-              <li><a href="/get-started" class="text-white/50 hover:text-white transition-colors">Criar minha conta</a></li>
+              <li><a href="/get-started" class="text-white/50 hover:text-white transition-colors">Baixar o app</a></li>
+              <li><a href="/memorial/demo" class="text-white/50 hover:text-white transition-colors">Memorial de exemplo</a></li>
               <li><a href="/partners" class="text-white/50 hover:text-white transition-colors">Seja um parceiro</a></li>
             </ul>
           </div>
@@ -669,6 +599,7 @@ export const HOME_HTML = `<!-- ─── NAVBAR ──────────�
               <li><a href="/privacy" class="text-white/50 hover:text-white transition-colors">Privacidade</a></li>
               <li><a href="/terms" class="text-white/50 hover:text-white transition-colors">Termos de uso</a></li>
               <li><a href="/privacy#direitos" class="text-white/50 hover:text-white transition-colors">LGPD</a></li>
+              <li><a href="/account-deletion" class="text-white/50 hover:text-white transition-colors">Excluir conta</a></li>
             </ul>
           </div>
         </div>

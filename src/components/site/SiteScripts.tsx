@@ -5,9 +5,9 @@ import { useEffect } from 'react';
 /**
  * Comportamento client-side das páginas de marketing (migrado dos `<script>`
  * inline do site estático): efeito de scroll no navbar, reveal-on-scroll e o
- * envio dos formulários (lista de espera e cadastro de parceiro). Cada bloco é
- * guardado por presença do elemento, então o mesmo componente serve todas as
- * páginas — basta estar montado uma vez (via layout).
+ * envio do formulário de parceiro. Cada bloco é guardado por presença do
+ * elemento, então o mesmo componente serve todas as páginas — basta estar
+ * montado uma vez (via layout).
  */
 export function SiteScripts() {
   useEffect(() => {
@@ -41,59 +41,6 @@ export function SiteScripts() {
       { threshold: 0.12, rootMargin: '0px 0px -40px 0px' },
     );
     document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
-
-    // ── Lista de espera (home) ──────────────────────────────────────────
-    const subscribeForms = Array.from(
-      document.querySelectorAll<HTMLFormElement>('form[data-subscribe]'),
-    );
-    const onSubscribe = async (event: Event) => {
-      event.preventDefault();
-      const form = event.currentTarget as HTMLFormElement;
-      const input = form.querySelector<HTMLInputElement>('input[type="email"]');
-      const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
-      if (!input || !button) return;
-      const email = input.value.trim();
-      const original = button.innerHTML;
-      input.disabled = true;
-      button.disabled = true;
-      button.innerHTML = 'Enviando...';
-      button.classList.add('opacity-70', 'cursor-not-allowed');
-      try {
-        const res = await fetch('/api/subscribe', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email, source: form.id }),
-        });
-        if (!res.ok) {
-          const data = await res.json().catch(() => ({}));
-          throw new Error(data.error || 'Não foi possível enviar agora. Tente novamente.');
-        }
-        form.innerHTML = `
-          <div class="flex flex-col items-center gap-3 py-4 animate-fade-in">
-            <div class="w-12 h-12 bg-sage-100 rounded-full flex items-center justify-center">
-              <svg class="w-6 h-6 text-sage-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-            </div>
-            <div class="text-center">
-              <p class="font-semibold text-ink mb-1">Você está na lista! 🎉</p>
-              <p class="text-sm text-slate-500">Entraremos em contato em breve no e-mail <strong>${email}</strong>.</p>
-            </div>
-          </div>`;
-      } catch (err) {
-        let errorEl = form.querySelector<HTMLElement>('[data-error]');
-        if (!errorEl) {
-          errorEl = document.createElement('p');
-          errorEl.setAttribute('data-error', '');
-          errorEl.className = 'text-xs text-red-500 mt-3';
-          form.appendChild(errorEl);
-        }
-        errorEl.textContent = (err as Error).message;
-        input.disabled = false;
-        button.disabled = false;
-        button.innerHTML = original;
-        button.classList.remove('opacity-70', 'cursor-not-allowed');
-      }
-    };
-    subscribeForms.forEach((f) => f.addEventListener('submit', onSubscribe));
 
     // ── Cadastro de parceiro ────────────────────────────────────────────
     const partnerForm = document.getElementById('parceiro-form') as HTMLFormElement | null;
@@ -164,7 +111,6 @@ export function SiteScripts() {
     return () => {
       window.removeEventListener('scroll', onScroll);
       io.disconnect();
-      subscribeForms.forEach((f) => f.removeEventListener('submit', onSubscribe));
       cnpjInput?.removeEventListener('input', onCnpj);
       partnerForm?.removeEventListener('submit', onPartner);
     };
